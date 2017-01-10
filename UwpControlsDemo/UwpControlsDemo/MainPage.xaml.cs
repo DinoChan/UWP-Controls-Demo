@@ -26,5 +26,13 @@ namespace UwpControlsDemo
         {
             this.InitializeComponent();
         }
+
+        public IEnumerable<PageItemGroup> Pages
+        {
+            get
+            {
+                return SampleDateSource.LoadPages();
+            }
+        }
     }
 }

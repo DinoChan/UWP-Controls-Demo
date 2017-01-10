@@ -1,13 +1,50 @@
-﻿<Page
-    x:Class="UwpControlsDemo.MainPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:UwpControlsDemo"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+﻿<Page x:Class="UwpControlsDemo.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:UwpControlsDemo"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:data="using:Windows.UI.Xaml.Data"
+      mc:Ignorable="d">
+    <Page.Resources>
 
+
+        <CollectionViewSource x:Name="ViewSource"
+                              ItemsPath="Items"
+                              Source="{x:Bind Pages}"
+                              IsSourceGrouped="True" />
+
+        <DataTemplate x:Key="ZoomedInGroupHeaderTemplate"
+                      x:DataType="local:PageItemGroup">
+            <TextBlock Text="{x:Bind Title}" 
+                       Foreground="{ThemeResource ApplicationForegroundThemeBrush}"
+                       Style="{StaticResource SubtitleTextBlockStyle}" />
+        </DataTemplate>
+        <DataTemplate x:Key="ZoomedOutTemplate"
+                      x:DataType="data:ICollectionViewGroup">
+            <TextBlock Text="{x:Bind Group.(local:PageItemGroup.Title)}"
+                       Style="{StaticResource SubtitleTextBlockStyle}"
+                       TextWrapping="Wrap" />
+        </DataTemplate>
+    </Page.Resources>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <SemanticZoom>
+            <SemanticZoom.ZoomedInView>
+                <ListView ItemsSource="{x:Bind ViewSource.View}"
+                          ScrollViewer.IsHorizontalScrollChainingEnabled="False"
+                          SelectionMode="None">
+                    <ListView.GroupStyle>
+                        <GroupStyle HeaderTemplate="{StaticResource ZoomedInGroupHeaderTemplate}" />
+                    </ListView.GroupStyle>
+                </ListView>
+            </SemanticZoom.ZoomedInView>
+
+            <SemanticZoom.ZoomedOutView>
+                <ListView  ItemsSource="{x:Bind ViewSource.View.CollectionGroups}"
+                           DisplayMemberPath="Title"
+                           ItemTemplate="{StaticResource ZoomedOutTemplate}" />
+            </SemanticZoom.ZoomedOutView>
+        </SemanticZoom>
 
     </Grid>
 </Page>
