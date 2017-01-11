@@ -33,12 +33,16 @@
         </DataTemplate>
     </Page.Resources>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
         <SemanticZoom>
             <SemanticZoom.ZoomedInView>
                 <ListView ItemsSource="{x:Bind ViewSource.View}"
                           ItemTemplate="{StaticResource ZoomedInTemplate}"
                           ScrollViewer.IsHorizontalScrollChainingEnabled="False"
-                          SelectionMode="None">
+                          SelectionMode="Single" SelectionChanged="OnSelectionChanged">
                     <ListView.GroupStyle>
                         <GroupStyle HeaderTemplate="{StaticResource ZoomedInGroupHeaderTemplate}" />
                     </ListView.GroupStyle>
@@ -51,6 +55,7 @@
                            ItemTemplate="{StaticResource ZoomedOutTemplate}" />
             </SemanticZoom.ZoomedOutView>
         </SemanticZoom>
-
+        <Frame Grid.Column="1"
+               x:Name="RootFrame" />
     </Grid>
 </Page>
