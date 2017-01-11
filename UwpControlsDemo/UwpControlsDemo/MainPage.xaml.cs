@@ -34,5 +34,14 @@ namespace UwpControlsDemo
                 return SampleDateSource.LoadPages();
             }
         }
+
+        private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems.Count == 0)
+                return;
+
+            var pageItem = (PageItem)e.AddedItems[0];
+            RootFrame.Navigate(pageItem.Type);
+        }
     }
 }

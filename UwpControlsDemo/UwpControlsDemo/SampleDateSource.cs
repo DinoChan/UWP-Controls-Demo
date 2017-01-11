@@ -17,25 +17,27 @@ namespace UwpControlsDemo
             group.Items.Add(new PageItem { Title = "C" });
             group.Items.Add(new PageItem { Title = "A" });
             group.Items.Add(new PageItem { Title = "RRR" });
+            pages.Add(group);
             group = new PageItemGroup("Layout");
             group.Items.Add(new PageItem { Title = "HTRDdf" });
             group.Items.Add(new PageItem { Title = "CTRE" });
             group.Items.Add(new PageItem { Title = "ewtetrt" });
-
+            pages.Add(group);
             group = new PageItemGroup("Pages");
             group.Items.Add(new PageItem { Title = "HTRDdf" });
             group.Items.Add(new PageItem { Title = "CTRE" });
             group.Items.Add(new PageItem { Title = "ewtetrt" });
-
+            pages.Add(group);
             group = new PageItemGroup("Header");
             group.Items.Add(new PageItem { Title = "HTRDdf" });
             group.Items.Add(new PageItem { Title = "CTRE" });
             group.Items.Add(new PageItem { Title = "ewtetrt" });
-
+            pages.Add(group);
             group = new PageItemGroup("Title");
             group.Items.Add(new PageItem { Title = "HTRDdf" });
             group.Items.Add(new PageItem { Title = "CTRE" });
             group.Items.Add(new PageItem { Title = "ewtetrt" });
+            pages.Add(group);
             return pages;
         }
     }
