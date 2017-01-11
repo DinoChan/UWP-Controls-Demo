@@ -42,14 +42,16 @@
                 <ListView ItemsSource="{x:Bind ViewSource.View}"
                           ItemTemplate="{StaticResource ZoomedInTemplate}"
                           ScrollViewer.IsHorizontalScrollChainingEnabled="False"
-                          SelectionMode="Single" SelectionChanged="OnSelectionChanged">
+                          x:Name="Menu"
+                          SelectionMode="Single"
+                          SelectionChanged="OnSelectionChanged">
                     <ListView.GroupStyle>
                         <GroupStyle HeaderTemplate="{StaticResource ZoomedInGroupHeaderTemplate}" />
                     </ListView.GroupStyle>
                 </ListView>
             </SemanticZoom.ZoomedInView>
 
-            <SemanticZoom.ZoomedOutView >
+            <SemanticZoom.ZoomedOutView>
                 <ListView  ItemsSource="{x:Bind ViewSource.View.CollectionGroups}"
                            SelectionMode="None"
                            ItemTemplate="{StaticResource ZoomedOutTemplate}" />

@@ -40,8 +40,11 @@ namespace UwpControlsDemo
             if (e.AddedItems.Count == 0)
                 return;
 
+            if (RootFrame == null)
+                return;
+
             var pageItem = (PageItem)e.AddedItems[0];
-            RootFrame.Navigate(pageItem.Type);
+            //RootFrame.Navigate(pageItem.Type);
         }
     }
 }
