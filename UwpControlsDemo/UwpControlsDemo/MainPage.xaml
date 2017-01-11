@@ -13,10 +13,15 @@
                               ItemsPath="Items"
                               Source="{x:Bind Pages}"
                               IsSourceGrouped="True" />
+        <DataTemplate x:Key="ZoomedInTemplate"
+                      x:DataType="local:PageItem">
+            <TextBlock Text="{x:Bind Title}"
+                       Style="{StaticResource BaseTextBlockStyle}" />
 
+        </DataTemplate>
         <DataTemplate x:Key="ZoomedInGroupHeaderTemplate"
                       x:DataType="local:PageItemGroup">
-            <TextBlock Text="{x:Bind Title}" 
+            <TextBlock Text="{x:Bind Title}"
                        Foreground="{ThemeResource ApplicationForegroundThemeBrush}"
                        Style="{StaticResource SubtitleTextBlockStyle}" />
         </DataTemplate>
@@ -31,6 +36,7 @@
         <SemanticZoom>
             <SemanticZoom.ZoomedInView>
                 <ListView ItemsSource="{x:Bind ViewSource.View}"
+                          ItemTemplate="{StaticResource ZoomedInTemplate}"
                           ScrollViewer.IsHorizontalScrollChainingEnabled="False"
                           SelectionMode="None">
                     <ListView.GroupStyle>
@@ -39,9 +45,9 @@
                 </ListView>
             </SemanticZoom.ZoomedInView>
 
-            <SemanticZoom.ZoomedOutView>
+            <SemanticZoom.ZoomedOutView >
                 <ListView  ItemsSource="{x:Bind ViewSource.View.CollectionGroups}"
-                           DisplayMemberPath="Title"
+                           SelectionMode="None"
                            ItemTemplate="{StaticResource ZoomedOutTemplate}" />
             </SemanticZoom.ZoomedOutView>
         </SemanticZoom>
