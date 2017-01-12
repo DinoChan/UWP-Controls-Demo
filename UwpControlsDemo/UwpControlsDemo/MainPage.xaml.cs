@@ -25,6 +25,7 @@ namespace UwpControlsDemo
         public MainPage()
         {
             this.InitializeComponent();
+            
         }
 
         public IEnumerable<PageItemGroup> Pages
@@ -46,5 +47,7 @@ namespace UwpControlsDemo
             var pageItem = (PageItem)e.AddedItems[0];
             //RootFrame.Navigate(pageItem.Type);
         }
+
+     
     }
 }

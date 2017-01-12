@@ -11,11 +11,11 @@ namespace UwpControlsDemo
         public static IEnumerable<PageItemGroup> LoadPages()
         {
             List<PageItemGroup> pages = new List<PageItemGroup>();
-            var group = new PageItemGroup("ContentControl");
+            var group = new PageItemGroup("Buttons");
 
-            group.Items.Add(new PageItem { Title = "Mage" });
-            group.Items.Add(new PageItem { Title = "C" });
-            group.Items.Add(new PageItem { Title = "A" });
+            group.Items.Add(new PageItem { Title = "Button" ,Type=typeof(ButtonPage) });
+            group.Items.Add(new PageItem { Title = "HyperlinkButton" });
+            group.Items.Add(new PageItem { Title = "RepeatButton" });
             group.Items.Add(new PageItem { Title = "RRR" });
             pages.Add(group);
             group = new PageItemGroup("Layout");
