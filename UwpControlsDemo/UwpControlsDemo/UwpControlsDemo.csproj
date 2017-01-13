@@ -110,6 +110,18 @@
     <Compile Include="Samples\Button\ButtonSample.xaml.cs">
       <DependentUpon>ButtonSample.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Samples\CheckBox\CheckBoxPage.xaml.cs">
+      <DependentUpon>CheckBoxPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\HyperlinkButton\HyperlinkButtonPage.xaml.cs">
+      <DependentUpon>HyperlinkButtonPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\RepeatButton\RepeatButtonPage.xaml.cs">
+      <DependentUpon>RepeatButtonPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\ToggleButton\ToggleButtonPage.xaml.cs">
+      <DependentUpon>ToggleButtonPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -141,6 +153,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Samples\Button\ButtonSample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\CheckBox\CheckBoxPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\HyperlinkButton\HyperlinkButtonPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\RepeatButton\RepeatButtonPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\ToggleButton\ToggleButtonPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

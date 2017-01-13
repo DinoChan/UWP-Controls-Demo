@@ -12,15 +12,30 @@
         <local:SampleBroswerItem>
             <StackPanel>
                 <Button Content="Click It"
-                        x:Name="ButtonElement" />
+                        x:Name="ButtonElement"
+                        Click="OnButtonClick" />
+                <ListView ItemsSource="{x:Bind Actions}"
+                          Header="Actions">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <ItemsStackPanel VerticalAlignment="Bottom"
+                                             ItemsUpdatingScrollMode="KeepLastItemInView" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                </ListView>
             </StackPanel>
             <local:SampleBroswerItem.PropertiesContent>
                 <StackPanel>
+                    <ToggleSwitch Header="IsEnabled"
+                                  IsOn="{x:Bind ButtonElement.IsEnabled,Mode=TwoWay}" />
                     <ToggleSwitch Header="IsPointerOver"
                                   IsOn="{x:Bind ButtonElement.IsPointerOver}" />
                     <ToggleSwitch Header="IsPressed"
                                   IsOn="{x:Bind ButtonElement.IsPressed}" />
-                    <TextBox Header="ClickModel"/>
+                    <TextBlock Text="ClickModel" />
+                    <ListBox ItemsSource="{x:Bind ClickModes}"
+                             x:Name="ClickModesElement"
+                             SelectedItem="{Binding ElementName=ButtonElement,Mode=TwoWay,Path=ClickMode}" />
                 </StackPanel>
             </local:SampleBroswerItem.PropertiesContent>
         </local:SampleBroswerItem>

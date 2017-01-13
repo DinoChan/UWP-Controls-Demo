@@ -13,6 +13,13 @@
                     <local:ButtonSample x:Name="ButtonSample" />
                 </PivotItem>
             </Pivot>
+            <local:SampleBrowser.Information>
+                <StackPanel>
+                    <TextBlock Text="按钮为用户提供了触发即时操作的方法。" />
+                    <HyperlinkButton NavigateUri="https://msdn.microsoft.com/zh-cn/windows/uwp/controls-and-patterns/buttons"
+                                     Content="按钮 _ MSDN" />
+                </StackPanel>
+            </local:SampleBrowser.Information>
         </local:SampleBrowser>
     </Grid>
 </Page>

@@ -14,8 +14,17 @@
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition />
                             </Grid.RowDefinitions>
-                            <CommandBar Content="{TemplateBinding Header}" />
+                            <CommandBar Content="{TemplateBinding Header}">
+                                <AppBarToggleButton Icon="More"
+                                                    x:Name="InformationButton"
+                                                    IsChecked="{Binding IsShowInformation,Source={RelativeSource Mode=TemplatedParent},Mode=TwoWay}" />
+                            </CommandBar>
                             <ContentPresenter Grid.Row="1" />
+                            <Grid Grid.Row="1"
+                                  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+                                  Visibility="{Binding ElementName=InformationButton,Path=IsChecked}">
+                                <ContentControl Content="{TemplateBinding Information}" />
+                            </Grid>
                         </Grid>
                     </Border>
                 </ControlTemplate>

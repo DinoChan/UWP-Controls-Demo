@@ -17,6 +17,7 @@ namespace UwpControlsDemo
     {
         public SampleBrowser()
         {
+
             this.DefaultStyleKey = typeof(SampleBrowser);
         }
 
@@ -50,5 +51,33 @@ namespace UwpControlsDemo
         public static readonly DependencyProperty InformationProperty =
             DependencyProperty.Register("Information", typeof(object), typeof(SampleBrowser), new PropertyMetadata(null));
 
+
+        /// <summary>
+        /// 获取或设置IsShowInformation的值
+        /// </summary>  
+        public bool IsShowInformation
+        {
+            get { return (bool)GetValue(IsShowInformationProperty); }
+            set { SetValue(IsShowInformationProperty, value); }
+        }
+
+        /// <summary>
+        /// 标识 IsShowInformation 依赖属性。
+        /// </summary>
+        public static readonly DependencyProperty IsShowInformationProperty =
+            DependencyProperty.Register("IsShowInformation", typeof(bool), typeof(SampleBrowser), new PropertyMetadata(false, OnIsShowInformationPropertyChanged));
+
+        private static void OnIsShowInformationPropertyChanged(DependencyObject obj, DependencyPropertyChangedEventArgs args)
+        {
+            SampleBrowser control = obj as SampleBrowser;
+            bool oldValue = (bool)args.OldValue;
+            bool newValue = (bool)args.NewValue;
+            control.OnIsShowInformationChanged(oldValue, newValue);
+        }
+
+        private void OnIsShowInformationChanged(bool oldValue, bool newValue)
+        {
+
+        }
     }
 }

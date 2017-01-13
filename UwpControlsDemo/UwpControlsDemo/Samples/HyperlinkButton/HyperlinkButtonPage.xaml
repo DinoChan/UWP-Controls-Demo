@@ -1,0 +1,52 @@
+﻿<Page x:Class="UwpControlsDemo.HyperlinkButtonPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:UwpControlsDemo"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <local:SampleBrowser Header="Button">
+            <Pivot>
+                <PivotItem Header="Button">
+                    <local:SampleBroswerItem>
+                        <StackPanel>
+                            <HyperlinkButton Content="Click It"
+                                             x:Name="ButtonElement"
+                                             NavigateUri="http://www.bing.com/"
+                                             Click="OnButtonClick" />
+                            <ListView ItemsSource="{x:Bind Actions}"
+                                      Header="Actions">
+                                <ListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <ItemsStackPanel VerticalAlignment="Bottom"
+                                                         ItemsUpdatingScrollMode="KeepLastItemInView" />
+                                    </ItemsPanelTemplate>
+                                </ListView.ItemsPanel>
+                            </ListView>
+                        </StackPanel>
+                        <local:SampleBroswerItem.PropertiesContent>
+                            <StackPanel>
+                                <ToggleSwitch Header="IsEnabled"
+                                              IsOn="{x:Bind ButtonElement.IsEnabled,Mode=TwoWay}" />
+                                <ToggleSwitch Header="IsPointerOver"
+                                              IsOn="{x:Bind ButtonElement.IsPointerOver}" />
+                                <ToggleSwitch Header="IsPressed"
+                                              IsOn="{x:Bind ButtonElement.IsPressed}" />
+                                <TextBlock Text="ClickModel" />
+                                <ListBox ItemsSource="{x:Bind ClickModes}"
+                                         SelectedItem="{Binding ElementName=ButtonElement,Mode=TwoWay,Path=ClickMode}" />
+
+                                <TextBox Text="{x:Bind ButtonElement.NavigateUri}"
+                                         IsReadOnly="True"
+                                         Header="NavigateUri"
+                                         TextWrapping="Wrap" />
+                            </StackPanel>
+                        </local:SampleBroswerItem.PropertiesContent>
+                    </local:SampleBroswerItem>
+                </PivotItem>
+            </Pivot>
+        </local:SampleBrowser>
+    </Grid>
+</Page>
