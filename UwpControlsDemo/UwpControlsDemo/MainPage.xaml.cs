@@ -45,7 +45,10 @@ namespace UwpControlsDemo
                 return;
 
             var pageItem = (PageItem)e.AddedItems[0];
-            //RootFrame.Navigate(pageItem.Type);
+            if (pageItem.Type == null)
+                return;
+
+            RootFrame.Navigate(pageItem.Type);
         }
 
      

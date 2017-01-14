@@ -37,7 +37,7 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <SemanticZoom>
+        <SemanticZoom Width="300">
             <SemanticZoom.ZoomedInView>
                 <ListView ItemsSource="{x:Bind ViewSource.View}"
                           ItemTemplate="{StaticResource ZoomedInTemplate}"

@@ -26,14 +26,17 @@
             </StackPanel>
             <local:SampleBroswerItem.PropertiesContent>
                 <StackPanel>
+
                     <ToggleSwitch Header="IsEnabled"
                                   IsOn="{x:Bind ButtonElement.IsEnabled,Mode=TwoWay}" />
                     <ToggleSwitch Header="IsPointerOver"
-                                  IsOn="{x:Bind ButtonElement.IsPointerOver}" />
+                                  IsEnabled="False"
+                                  IsOn="{Binding IsPointerOver,ElementName=ButtonElement}" />
                     <ToggleSwitch Header="IsPressed"
-                                  IsOn="{x:Bind ButtonElement.IsPressed}" />
+                                  IsEnabled="False"
+                                  IsOn="{Binding IsPressed,ElementName=ButtonElement}" />
                     <TextBlock Text="ClickModel" />
-                    <ListBox ItemsSource="{x:Bind ClickModes}"
+                    <ListBox ItemsSource="{x:Bind ClickModes}" 
                              x:Name="ClickModesElement"
                              SelectedItem="{Binding ElementName=ButtonElement,Mode=TwoWay,Path=ClickMode}" />
                 </StackPanel>

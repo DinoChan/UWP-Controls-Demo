@@ -14,10 +14,15 @@
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition />
                             </Grid.RowDefinitions>
-                            <CommandBar Content="{TemplateBinding Header}">
-                                <AppBarToggleButton Icon="More"
-                                                    x:Name="InformationButton"
-                                                    IsChecked="{Binding IsShowInformation,Source={RelativeSource Mode=TemplatedParent},Mode=TwoWay}" />
+                            <CommandBar>
+                                <CommandBar.Content>
+                                    <TextBlock Text="{TemplateBinding Header}"
+                                               FontSize="{ThemeResource PivotTitleFontSize}"
+                                               Margin="{StaticResource PivotPortraitThemePadding}" />
+                                </CommandBar.Content>
+                                <AppBarToggleButton x:Name="InformationButton"
+                                                    Icon="Help"
+                                                    Label="Help" />
                             </CommandBar>
                             <ContentPresenter Grid.Row="1" />
                             <Grid Grid.Row="1"
