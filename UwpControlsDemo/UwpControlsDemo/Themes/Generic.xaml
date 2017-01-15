@@ -16,13 +16,12 @@
                             </Grid.RowDefinitions>
                             <CommandBar>
                                 <CommandBar.Content>
-                                    <TextBlock Text="{TemplateBinding Header}"
-                                               FontSize="{ThemeResource PivotTitleFontSize}"
-                                               Margin="{StaticResource PivotPortraitThemePadding}" />
+                                    <TextBlock Text="{TemplateBinding Header}"  Margin="20,0,0,0"/>
                                 </CommandBar.Content>
                                 <AppBarToggleButton x:Name="InformationButton"
                                                     Icon="Help"
-                                                    Label="Help" />
+                                                    Label="Help"
+                                                   />
                             </CommandBar>
                             <ContentPresenter Grid.Row="1" />
                             <Grid Grid.Row="1"
@@ -51,7 +50,7 @@
                             </Grid.ColumnDefinitions>
                             <ContentPresenter />
                             <ContentControl Grid.Column="1"
-                                            Width="300"
+                                            Width="300" Padding="10"
                                             Content="{TemplateBinding PropertiesContent}" />
                         </Grid>
                     </Border>

@@ -25,12 +25,16 @@ namespace UwpControlsDemo
             this.InitializeComponent();
             Actions = new ObservableCollection<string>();
 
-            ClickModes = Enum.GetNames(typeof(ClickMode));
+          var clickModes = new List<ClickMode>();
+            clickModes.Add(ClickMode.Hover);
+            clickModes.Add(ClickMode.Press);
+            clickModes.Add(ClickMode.Release);
+            ClickModes = clickModes;
         }
 
         public ObservableCollection<string> Actions { get; }
 
-        public IEnumerable<string> ClickModes { get; }
+        public IEnumerable<ClickMode> ClickModes { get; }
 
 
         private void OnButtonClick(object sender, RoutedEventArgs e)

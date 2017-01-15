@@ -1,8 +1,10 @@
-﻿<Application
-    x:Class="UwpControlsDemo.App"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:UwpControlsDemo"
-    RequestedTheme="Light">
+﻿<Application x:Class="UwpControlsDemo.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:UwpControlsDemo"
+             RequestedTheme="Light">
+    <Application.Resources>
+        <local:StringFormatConverter x:Key="StringFormatConverter" />
+    </Application.Resources>
 
 </Application>
