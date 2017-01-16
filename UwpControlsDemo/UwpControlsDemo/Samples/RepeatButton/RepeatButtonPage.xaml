@@ -16,6 +16,8 @@
                                           x:Name="ButtonElement"
                                           Click="OnButtonClick" />
                             <ListView ItemsSource="{x:Bind Actions}"
+                                      Margin="0,10,0,0"
+                                      MaxHeight="500"
                                       Header="Actions">
                                 <ListView.ItemsPanel>
                                     <ItemsPanelTemplate>
@@ -30,9 +32,11 @@
                                 <ToggleSwitch Header="IsEnabled"
                                               IsOn="{x:Bind ButtonElement.IsEnabled,Mode=TwoWay}" />
                                 <ToggleSwitch Header="IsPointerOver"
-                                              IsOn="{x:Bind ButtonElement.IsPointerOver}" />
+                                              IsEnabled="False"
+                                              IsOn="{Binding IsPointerOver,ElementName=ButtonElement}" />
                                 <ToggleSwitch Header="IsPressed"
-                                              IsOn="{x:Bind ButtonElement.IsPressed}" />
+                                              IsEnabled="False"
+                                              IsOn="{Binding IsPressed,ElementName=ButtonElement}" />
                                 <TextBlock Text="ClickModel" />
                                 <ListBox ItemsSource="{x:Bind ClickModes}"
                                          SelectedItem="{Binding ElementName=ButtonElement,Mode=TwoWay,Path=ClickMode}">
@@ -59,6 +63,13 @@
                     </local:SampleBroswerItem>
                 </PivotItem>
             </Pivot>
+            <local:SampleBrowser.Information>
+                <StackPanel>
+                    <TextBlock  TextWrapping="Wrap" Text="RepeatButton 是一个从按下到释放为止重复引发 Click 事件的按钮。 设置 Delay 属性来指定 RepeatButton 在其被按下后和开始重复单击操作之间等待的时间。 设置 Interval 属性来指定重复单击操作之间的时间。 两个属性的时间都以毫秒为单位指定。" />
+                    <HyperlinkButton NavigateUri="https://msdn.microsoft.com/zh-cn/windows/uwp/controls-and-patterns/buttons"
+                                     Content="按钮 _ MSDN" />
+                </StackPanel>
+            </local:SampleBrowser.Information>
         </local:SampleBrowser>
     </Grid>
 </Page>

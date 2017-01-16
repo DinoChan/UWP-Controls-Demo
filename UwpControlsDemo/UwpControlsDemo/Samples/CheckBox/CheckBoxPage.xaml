@@ -19,6 +19,8 @@
                                       Unchecked="OnUnchecked"
                                       Indeterminate="OnIndeterminate"/>
                             <ListView ItemsSource="{x:Bind Actions}"
+                                      Margin="0,10,0,0"
+                                      MaxHeight="500"
                                       Header="Actions">
                                 <ListView.ItemsPanel>
                                     <ItemsPanelTemplate>
@@ -33,9 +35,11 @@
                                 <ToggleSwitch Header="IsEnabled"
                                               IsOn="{x:Bind ButtonElement.IsEnabled,Mode=TwoWay}" />
                                 <ToggleSwitch Header="IsPointerOver"
-                                              IsOn="{x:Bind ButtonElement.IsPointerOver}" />
+                                              IsEnabled="False"
+                                              IsOn="{Binding IsPointerOver,ElementName=ButtonElement}" />
                                 <ToggleSwitch Header="IsPressed"
-                                              IsOn="{x:Bind ButtonElement.IsPressed}" />
+                                              IsEnabled="False"
+                                              IsOn="{Binding IsPressed,ElementName=ButtonElement}" />
                                 <TextBlock Text="ClickModel" />
                                 <ListBox ItemsSource="{x:Bind ClickModes}"
                                          SelectedItem="{Binding ElementName=ButtonElement,Mode=TwoWay,Path=ClickMode}">
@@ -52,6 +56,13 @@
                     </local:SampleBroswerItem>
                 </PivotItem>
             </Pivot>
+            <local:SampleBrowser.Information>
+                <StackPanel>
+                    <TextBlock TextWrapping="Wrap" Text="复选框用于选择或取消选择操作项目。 它可用于单个项目或用户可以选择的多个项目列表。 该控件具有三个选择状态：未选中、已选中和不确定。 在子选择集具有未选中和已选中两种状态时，使用不确定状态。" />
+                    <HyperlinkButton NavigateUri="https://msdn.microsoft.com/zh-cn/windows/uwp/controls-and-patterns/checkbox"
+                                     Content="复选框 _ MSDN" />
+                </StackPanel>
+            </local:SampleBrowser.Information>
         </local:SampleBrowser>
     </Grid>
 </Page>

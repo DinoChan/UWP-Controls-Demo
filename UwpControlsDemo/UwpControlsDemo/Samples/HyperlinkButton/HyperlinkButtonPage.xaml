@@ -17,6 +17,8 @@
                                              NavigateUri="http://www.bing.com/"
                                              Click="OnButtonClick" />
                             <ListView ItemsSource="{x:Bind Actions}"
+                                      Margin="0,10,0,0"
+                                      MaxHeight="500"
                                       Header="Actions">
                                 <ListView.ItemsPanel>
                                     <ItemsPanelTemplate>
@@ -31,9 +33,11 @@
                                 <ToggleSwitch Header="IsEnabled"
                                               IsOn="{x:Bind ButtonElement.IsEnabled,Mode=TwoWay}" />
                                 <ToggleSwitch Header="IsPointerOver"
-                                              IsOn="{x:Bind ButtonElement.IsPointerOver}" />
+                                              IsEnabled="False"
+                                              IsOn="{Binding IsPointerOver,ElementName=ButtonElement}" />
                                 <ToggleSwitch Header="IsPressed"
-                                              IsOn="{x:Bind ButtonElement.IsPressed}" />
+                                              IsEnabled="False"
+                                              IsOn="{Binding IsPressed,ElementName=ButtonElement}" />
                                 <TextBlock Text="ClickModel" />
                                 <ListBox ItemsSource="{x:Bind ClickModes}"
                                          SelectedItem="{Binding ElementName=ButtonElement,Mode=TwoWay,Path=ClickMode}">
@@ -52,6 +56,13 @@
                     </local:SampleBroswerItem>
                 </PivotItem>
             </Pivot>
+            <local:SampleBrowser.Information>
+                <StackPanel>
+                    <TextBlock  TextWrapping="Wrap" Text="超链接会将用户导航到应用的另一部分、导航到另一个应用，或使用单独的浏览器应用启动特定的统一资源标识符 (URI)。 可使用两种方法向 XAML 应用添加超链接：Hyperlink 文本元素和 HyperlinkButton 控件。" />
+                    <HyperlinkButton NavigateUri="https://msdn.microsoft.com/zh-cn/windows/uwp/controls-and-patterns/hyperlinks"
+                                     Content="超链接 _ MSDN" />
+                </StackPanel>
+            </local:SampleBrowser.Information>
         </local:SampleBrowser>
     </Grid>
 </Page>

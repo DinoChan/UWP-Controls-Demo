@@ -19,7 +19,10 @@
                                       Checked="OnChecked"
                                       Unchecked="OnUnchecked"
                                       Indeterminate="OnIndeterminate" />
+                            
                             <ListView ItemsSource="{x:Bind Actions}"
+                                      Margin="0,10,0,0"
+                                      MaxHeight="500"
                                       Header="Actions">
                                 <ListView.ItemsPanel>
                                     <ItemsPanelTemplate>
@@ -34,9 +37,11 @@
                                 <ToggleSwitch Header="IsEnabled"
                                               IsOn="{x:Bind ButtonElement.IsEnabled,Mode=TwoWay}" />
                                 <ToggleSwitch Header="IsPointerOver"
-                                              IsOn="{x:Bind ButtonElement.IsPointerOver}" />
+                                              IsEnabled="False"
+                                              IsOn="{Binding IsPointerOver,ElementName=ButtonElement}" />
                                 <ToggleSwitch Header="IsPressed"
-                                              IsOn="{x:Bind ButtonElement.IsPressed}" />
+                                              IsEnabled="False"
+                                              IsOn="{Binding IsPressed,ElementName=ButtonElement}" />
                                 <TextBlock Text="ClickModel" />
                                 <ListBox ItemsSource="{x:Bind ClickModes}"
                                          SelectedItem="{Binding ElementName=ButtonElement,Mode=TwoWay,Path=ClickMode}">
@@ -53,6 +58,13 @@
                     </local:SampleBroswerItem>
                 </PivotItem>
             </Pivot>
+            <local:SampleBrowser.Information>
+                <StackPanel>
+                    <TextBlock Text="可切换状态的控件的基类，例如 CheckBox 和 RadioButton。" />
+                    <HyperlinkButton NavigateUri="https://msdn.microsoft.com/zh-cn/library/windows/apps/windows.ui.xaml.controls.primitives.togglebutton.aspx"
+                                     Content="ToggleButton _ MSDN" />
+                </StackPanel>
+            </local:SampleBrowser.Information>
         </local:SampleBrowser>
     </Grid>
 </Page>
