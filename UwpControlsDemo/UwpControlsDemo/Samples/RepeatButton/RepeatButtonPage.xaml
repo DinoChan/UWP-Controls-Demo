@@ -35,8 +35,13 @@
                                               IsOn="{x:Bind ButtonElement.IsPressed}" />
                                 <TextBlock Text="ClickModel" />
                                 <ListBox ItemsSource="{x:Bind ClickModes}"
-                                         SelectedItem="{Binding ElementName=ButtonElement,Mode=TwoWay,Path=ClickMode}" />
-
+                                         SelectedItem="{Binding ElementName=ButtonElement,Mode=TwoWay,Path=ClickMode}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
                                 <Slider StepFrequency="250"
                                         Minimum="250"
                                         Maximum="1500"

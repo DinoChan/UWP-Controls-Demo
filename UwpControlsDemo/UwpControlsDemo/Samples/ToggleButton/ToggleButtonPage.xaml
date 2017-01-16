@@ -39,8 +39,13 @@
                                               IsOn="{x:Bind ButtonElement.IsPressed}" />
                                 <TextBlock Text="ClickModel" />
                                 <ListBox ItemsSource="{x:Bind ClickModes}"
-                                         SelectedItem="{Binding ElementName=ButtonElement,Mode=TwoWay,Path=ClickMode}" />
-
+                                         SelectedItem="{Binding ElementName=ButtonElement,Mode=TwoWay,Path=ClickMode}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
                                 <ToggleSwitch Header="IsThreeState"
                                               IsOn="{x:Bind ButtonElement.IsThreeState,Mode=TwoWay}" />
                             </StackPanel>

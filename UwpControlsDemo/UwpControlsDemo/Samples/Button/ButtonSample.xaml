@@ -39,7 +39,6 @@
                                   IsOn="{Binding IsPressed,ElementName=ButtonElement}" />
                     <TextBlock Text="ClickModel" />
                     <ListBox ItemsSource="{x:Bind ClickModes}"
-                             x:Name="ClickModesElement"
                              SelectedItem="{Binding ElementName=ButtonElement,Mode=TwoWay,Path=ClickMode}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>

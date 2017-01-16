@@ -24,12 +24,7 @@ namespace UwpControlsDemo
         {
             this.InitializeComponent();
             Actions = new ObservableCollection<string>();
-
-          var clickModes = new List<ClickMode>();
-            clickModes.Add(ClickMode.Hover);
-            clickModes.Add(ClickMode.Press);
-            clickModes.Add(ClickMode.Release);
-            ClickModes = clickModes;
+            ClickModes = new List<ClickMode> { ClickMode.Hover, ClickMode.Press, ClickMode.Release }; 
         }
 
         public ObservableCollection<string> Actions { get; }
