@@ -7,9 +7,9 @@
       mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <local:SampleBrowser Header="Button">
+        <local:SampleBrowser Header="HyperlinkButton">
             <Pivot>
-                <PivotItem Header="Button">
+                <PivotItem Header="HyperlinkButton">
                     <local:SampleBroswerItem>
                         <StackPanel>
                             <HyperlinkButton Content="Click It"

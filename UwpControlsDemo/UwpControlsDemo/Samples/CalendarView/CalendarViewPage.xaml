@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="UwpControlsDemo.ToggleButtonPage"
+    x:Class="UwpControlsDemo.CalendarViewPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:UwpControlsDemo"
@@ -8,18 +8,14 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <local:SampleBrowser Header="ToggleButton">
+        <local:SampleBrowser Header="CalendarDatePicker">
             <Pivot>
-                <PivotItem Header="ToggleButton">
+                <PivotItem Header="CalendarDatePicker">
                     <local:SampleBroswerItem>
                         <StackPanel>
-                            <ToggleButton Content="Click It"
-                                      x:Name="ButtonElement"
-                                      Click="OnButtonClick"
-                                      Checked="OnChecked"
-                                      Unchecked="OnUnchecked"
-                                      Indeterminate="OnIndeterminate" />
-                            
+                            <HyperlinkButton Content="Click It"
+                                             x:Name="ButtonElement"
+                                             NavigateUri="http://www.bing.com/" />
                             <ListView ItemsSource="{x:Bind Actions}"
                                       Margin="0,10,0,0"
                                       MaxHeight="500"
@@ -43,16 +39,11 @@
                                               IsEnabled="False"
                                               IsOn="{Binding IsPressed,ElementName=ButtonElement}" />
                                 <TextBlock Text="ClickModel" />
-                                <ListBox ItemsSource="{x:Bind ClickModes}"
-                                         SelectedItem="{Binding ElementName=ButtonElement,Mode=TwoWay,Path=ClickMode}">
-                                    <ListBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>
-                                </ListBox>
-                                <ToggleSwitch Header="IsThreeState"
-                                              IsOn="{x:Bind ButtonElement.IsThreeState,Mode=TwoWay}" />
+
+                                <TextBox Text="{x:Bind ButtonElement.NavigateUri}"
+                                         IsReadOnly="True"
+                                         Header="NavigateUri"
+                                         TextWrapping="Wrap" />
                             </StackPanel>
                         </local:SampleBroswerItem.PropertiesContent>
                     </local:SampleBroswerItem>
@@ -60,9 +51,10 @@
             </Pivot>
             <local:SampleBrowser.Information>
                 <StackPanel>
-                    <TextBlock Text="可切换状态的控件的基类，例如 CheckBox 和 RadioButton。" />
-                    <HyperlinkButton NavigateUri="https://msdn.microsoft.com/zh-cn/library/windows/apps/windows.ui.xaml.controls.primitives.togglebutton.aspx"
-                                     Content="ToggleButton _ MSDN" />
+                    <TextBlock  TextWrapping="Wrap"
+                                Text="日历视图让用户查看可按月份、年份或十年期浏览的日历，并与之交互。 用户可选择单个日期或一组日期。 它没有选取器图面，并且日历始终可见。 " />
+                    <HyperlinkButton NavigateUri="https://msdn.microsoft.com/zh-cn/windows/uwp/controls-and-patterns/calendar-view"
+                                     Content="日历视图 _ MSDN" />
                 </StackPanel>
             </local:SampleBrowser.Information>
         </local:SampleBrowser>

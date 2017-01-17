@@ -7,9 +7,9 @@
       mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <local:SampleBrowser Header="Button">
+        <local:SampleBrowser Header="RepeatButton">
             <Pivot>
-                <PivotItem Header="Button">
+                <PivotItem Header="RepeatButton">
                     <local:SampleBroswerItem>
                         <StackPanel>
                             <RepeatButton Content="Click It"

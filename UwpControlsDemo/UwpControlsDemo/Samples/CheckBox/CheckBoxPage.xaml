@@ -7,9 +7,9 @@
       mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <local:SampleBrowser Header="Button">
+        <local:SampleBrowser Header="CheckBox">
             <Pivot>
-                <PivotItem Header="Button">
+                <PivotItem Header="CheckBox">
                     <local:SampleBroswerItem>
                         <StackPanel>
                             <CheckBox Content="Click It"

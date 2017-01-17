@@ -111,14 +111,26 @@
     <Compile Include="Samples\Button\ButtonSample.xaml.cs">
       <DependentUpon>ButtonSample.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Samples\CalendarDatePicker\CalendarDatePickerPage.xaml.cs">
+      <DependentUpon>CalendarDatePickerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\CalendarView\CalendarViewPage.xaml.cs">
+      <DependentUpon>CalendarViewPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Samples\CheckBox\CheckBoxPage.xaml.cs">
       <DependentUpon>CheckBoxPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\DatePicker\DatePickerPage.xaml.cs">
+      <DependentUpon>DatePickerPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Samples\HyperlinkButton\HyperlinkButtonPage.xaml.cs">
       <DependentUpon>HyperlinkButtonPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Samples\RepeatButton\RepeatButtonPage.xaml.cs">
       <DependentUpon>RepeatButtonPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\TimePicker\TimePickerPage.xaml.cs">
+      <DependentUpon>TimePickerPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Samples\ToggleButton\ToggleButtonPage.xaml.cs">
       <DependentUpon>ToggleButtonPage.xaml</DependentUpon>
@@ -157,7 +169,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Samples\CalendarDatePicker\CalendarDatePickerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\CalendarView\CalendarViewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Samples\CheckBox\CheckBoxPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\DatePicker\DatePickerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -166,6 +190,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Samples\RepeatButton\RepeatButtonPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\TimePicker\TimePickerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
