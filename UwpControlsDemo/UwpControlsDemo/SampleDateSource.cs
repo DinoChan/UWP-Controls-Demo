@@ -16,7 +16,6 @@ namespace UwpControlsDemo
             group.Items.Add(new PageItem { Title = "Button", Type = typeof(ButtonPage) });
             group.Items.Add(new PageItem { Title = "HyperlinkButton", Type = typeof(HyperlinkButtonPage) });
             group.Items.Add(new PageItem { Title = "RepeatButton", Type = typeof(RepeatButtonPage) });
-            group.Items.Add(new PageItem { Title = "RRR" });
             pages.Add(group);
             group = new PageItemGroup("Collection/data controls");
             group.Items.Add(new PageItem { Title = "Flip view" });
@@ -87,7 +86,7 @@ namespace UwpControlsDemo
             group.Items.Add(new PageItem { Title = "DatePicker " });
             group.Items.Add(new PageItem { Title = "ListBox  " });
             group.Items.Add(new PageItem { Title = "RadioButton  " });
-            group.Items.Add(new PageItem { Title = "Slider   " });
+            group.Items.Add(new PageItem { Title = "Slider",Type=typeof(SliderPage) });
             group.Items.Add(new PageItem { Title = "TimePicker   " });
             group.Items.Add(new PageItem { Title = "ToggleSwitch    " });
             pages.Add(group);
