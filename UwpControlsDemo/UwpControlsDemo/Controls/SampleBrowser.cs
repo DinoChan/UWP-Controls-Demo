@@ -79,5 +79,56 @@ namespace UwpControlsDemo
         {
 
         }
+
+
+
+        /// <summary>
+        /// 获取或设置MyProperty的值
+        /// </summary>  
+        public int MyProperty
+        {
+            get { return (int)GetValue(MyPropertyProperty); }
+            set { SetValue(MyPropertyProperty, value); }
+        }
+
+        /// <summary>
+        /// 标识 MyProperty 依赖属性。
+        /// </summary>
+        public static readonly DependencyProperty MyPropertyProperty =
+            DependencyProperty.Register("MyProperty", typeof(int), typeof(SampleBrowser), new PropertyMetadata(0, OnMyPropertyChanged));
+
+        private static void OnMyPropertyChanged(DependencyObject obj, DependencyPropertyChangedEventArgs args)
+        {
+         
+        }
+
+
+
+        /// <summary>
+        /// 获取或设置MyName的值
+        /// </summary>  
+        public int MyName
+        {
+            get { return (int)GetValue(MyNamePropert); }
+            set { SetValue(MyNamePropert, value); }
+        }
+
+        /// <summary>
+        /// 标识 MyName 依赖属性。
+        /// </summary>
+        public static readonly DependencyProperty MyNamePropert =
+            DependencyProperty.Register("MyName", typeof(int), typeof(SampleBrowser), new PropertyMetadata(0, OnMyNameChanged));
+
+        private static void OnMyNameChanged(DependencyObject obj, DependencyPropertyChangedEventArgs args)
+        {
+           
+        }
+
+        public void ss()
+        {
+            ReadLocalValue(MyNamePropert);
+        }
+
+
     }
 }

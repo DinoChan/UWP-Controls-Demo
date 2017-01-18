@@ -83,11 +83,13 @@ namespace UwpControlsDemo
             group.Items.Add(new PageItem { Title = "CheckBox", Type = typeof(CheckBoxPage) });
             group.Items.Add(new PageItem { Title = "ToggleButton", Type = typeof(ToggleButtonPage) });
             group.Items.Add(new PageItem { Title = "ComboBox " });
-            group.Items.Add(new PageItem { Title = "DatePicker " });
+            group.Items.Add(new PageItem { Title = "DatePicker",Type=typeof(DatePickerPage) });
+            group.Items.Add(new PageItem { Title = "CalendarDatePicker", Type = typeof(CalendarDatePickerPage) });
+            group.Items.Add(new PageItem { Title = "CalendarView", Type = typeof(CalendarViewPage) });
             group.Items.Add(new PageItem { Title = "ListBox  " });
             group.Items.Add(new PageItem { Title = "RadioButton  " });
             group.Items.Add(new PageItem { Title = "Slider",Type=typeof(SliderPage) });
-            group.Items.Add(new PageItem { Title = "TimePicker   " });
+            group.Items.Add(new PageItem { Title = "TimePicker",Type=typeof(TimePickerPage) });
             group.Items.Add(new PageItem { Title = "ToggleSwitch    " });
             pages.Add(group);
             return pages;
