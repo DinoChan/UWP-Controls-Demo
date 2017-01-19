@@ -12,10 +12,14 @@
                 <PivotItem Header="CalendarDatePicker">
                     <local:SampleBroswerItem>
                         <StackPanel>
-                            <HyperlinkButton Content="Click It"
-                                             x:Name="ButtonElement"
-                                             NavigateUri="http://www.bing.com/" />
-                            <!--<ListView ItemsSource="{x:Bind Actions}"
+                            <CalendarDatePicker x:Name="CalendarDatePicker"
+                                                Header="Calendar"
+                                                CalendarViewDayItemChanging="OnCalendarViewDayItemChanging"
+                                                DateChanged="OnDateChanged"
+                                                Closed="OnClosed"
+                                                Opened="OnOpened"
+                                                PlaceholderText="Choose a date" />
+                            <ListView ItemsSource="{x:Bind Actions}"
                                       Margin="0,10,0,0"
                                       MaxHeight="500"
                                       Header="Actions">
@@ -25,24 +29,38 @@
                                                          ItemsUpdatingScrollMode="KeepLastItemInView" />
                                     </ItemsPanelTemplate>
                                 </ListView.ItemsPanel>
-                            </ListView>-->
+                            </ListView>
                         </StackPanel>
                         <local:SampleBroswerItem.PropertiesContent>
                             <StackPanel>
                                 <ToggleSwitch Header="IsEnabled"
-                                              IsOn="{x:Bind ButtonElement.IsEnabled,Mode=TwoWay}" />
-                                <ToggleSwitch Header="IsPointerOver"
+                                              IsOn="{x:Bind CalendarDatePicker.IsEnabled,Mode=TwoWay}" />
+                                <ToggleSwitch Header="IsCalendarOpen"
                                               IsEnabled="False"
-                                              IsOn="{Binding IsPointerOver,ElementName=ButtonElement}" />
-                                <ToggleSwitch Header="IsPressed"
+                                              IsOn="{x:Bind CalendarDatePicker.IsCalendarOpen,Mode=TwoWay}" />
+                                <ToggleSwitch Header="IsGroupLabelVisible"
                                               IsEnabled="False"
-                                              IsOn="{Binding IsPressed,ElementName=ButtonElement}" />
-                                <TextBlock Text="ClickModel" />
-                               
-                                <TextBox Text="{x:Bind ButtonElement.NavigateUri}"
-                                         IsReadOnly="True"
-                                         Header="NavigateUri"
-                                         TextWrapping="Wrap" />
+                                              IsOn="{x:Bind CalendarDatePicker.IsGroupLabelVisible,Mode=TwoWay}" />
+                                <ToggleSwitch Header="IsOutOfScopeEnabled"
+                                              IsEnabled="False"
+                                              IsOn="{x:Bind CalendarDatePicker.IsOutOfScopeEnabled,Mode=TwoWay}" />
+                                <ToggleSwitch Header="IsTodayHighlighted"
+                                              IsEnabled="False"
+                                              IsOn="{x:Bind CalendarDatePicker.IsTodayHighlighted,Mode=TwoWay}" />
+                                <TextBlock Text="Date" />
+                                <TextBlock Text="{Binding ElementName=CalendarDatePicker,Path=Date}" />
+
+
+                                <TextBox Header="Header"
+                                         Text="{x:Bind CalendarDatePicker.Header,Mode=TwoWay}" />
+                                <TextBox Header="PlaceholderText"
+                                         Text="{x:Bind CalendarDatePicker.PlaceholderText,Mode=TwoWay}" />
+                                <CalendarDatePicker Header="MinDate"
+                                                    PlaceholderText="Choose MinDate"
+                                                    Date="{x:Bind CalendarDatePicker.MinDate,Mode=TwoWay}" />
+                                <CalendarDatePicker Header="MaxDate"
+                                                    PlaceholderText="Choose MaxDate"
+                                                    Date="{x:Bind CalendarDatePicker.MaxDate,Mode=TwoWay}" />
                             </StackPanel>
                         </local:SampleBroswerItem.PropertiesContent>
                     </local:SampleBroswerItem>

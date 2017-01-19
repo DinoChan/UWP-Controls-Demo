@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -26,7 +27,36 @@ namespace UwpControlsDemo
         {
             this.InitializeComponent();
 
-            
+            Actions = new ObservableCollection<string>();
+        }
+
+        public ObservableCollection<string> Actions { get; }
+
+
+        private void OnCalendarViewDayItemChanging(CalendarView sender, CalendarViewDayItemChangingEventArgs e)
+        {
+            AddAction("CalendarViewDayItemChanging");
+        }
+
+        private void OnDateChanged(CalendarDatePicker sender, CalendarDatePickerDateChangedEventArgs args)
+        {
+            AddAction("DateChanged");
+        }
+
+        private void OnClosed(object sender, object e)
+        {
+            AddAction("Closed");
+        }
+
+        private void OnOpened(object sender, object e)
+        {
+            AddAction("Opened");
+        }
+
+        private void AddAction(string action)
+        {
+            var content = DateTime.Now.ToString("HH:mm:ss") + " " + action;
+            Actions.Add(content);
         }
     }
 }
