@@ -14,6 +14,7 @@
                         <StackPanel>
                             <CalendarDatePicker x:Name="CalendarDatePicker"
                                                 Header="Calendar"
+                                                Width="200"
                                                 CalendarViewDayItemChanging="OnCalendarViewDayItemChanging"
                                                 DateChanged="OnDateChanged"
                                                 Closed="OnClosed"
@@ -36,19 +37,15 @@
                                 <ToggleSwitch Header="IsEnabled"
                                               IsOn="{x:Bind CalendarDatePicker.IsEnabled,Mode=TwoWay}" />
                                 <ToggleSwitch Header="IsCalendarOpen"
-                                              IsEnabled="False"
                                               IsOn="{x:Bind CalendarDatePicker.IsCalendarOpen,Mode=TwoWay}" />
                                 <ToggleSwitch Header="IsGroupLabelVisible"
-                                              IsEnabled="False"
                                               IsOn="{x:Bind CalendarDatePicker.IsGroupLabelVisible,Mode=TwoWay}" />
                                 <ToggleSwitch Header="IsOutOfScopeEnabled"
-                                              IsEnabled="False"
                                               IsOn="{x:Bind CalendarDatePicker.IsOutOfScopeEnabled,Mode=TwoWay}" />
                                 <ToggleSwitch Header="IsTodayHighlighted"
-                                              IsEnabled="False"
                                               IsOn="{x:Bind CalendarDatePicker.IsTodayHighlighted,Mode=TwoWay}" />
                                 <TextBlock Text="Date" />
-                                <TextBlock Text="{Binding ElementName=CalendarDatePicker,Path=Date}" />
+                                <TextBlock Text="{Binding ElementName=CalendarDatePicker,Path=Date,Converter={StaticResource StringFormatConverter},ConverterParameter='\{0:dddd yyyy-MM-dd}',TargetNullValue='No Selected Date'}" />
 
 
                                 <TextBox Header="Header"
@@ -56,11 +53,13 @@
                                 <TextBox Header="PlaceholderText"
                                          Text="{x:Bind CalendarDatePicker.PlaceholderText,Mode=TwoWay}" />
                                 <CalendarDatePicker Header="MinDate"
+                                                    HorizontalAlignment="Stretch"
                                                     PlaceholderText="Choose MinDate"
-                                                    Date="{x:Bind CalendarDatePicker.MinDate,Mode=TwoWay}" />
+                                                    Date="{Binding MinDate,ElementName=CalendarDatePicker,Mode=TwoWay}" />
                                 <CalendarDatePicker Header="MaxDate"
+                                                    HorizontalAlignment="Stretch"
                                                     PlaceholderText="Choose MaxDate"
-                                                    Date="{x:Bind CalendarDatePicker.MaxDate,Mode=TwoWay}" />
+                                                    Date="{Binding MaxDate,ElementName=CalendarDatePicker,Mode=TwoWay}" />
                             </StackPanel>
                         </local:SampleBroswerItem.PropertiesContent>
                     </local:SampleBroswerItem>

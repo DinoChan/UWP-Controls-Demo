@@ -14,6 +14,9 @@ namespace UwpControlsDemo
 
         public object Convert(object value, Type targetType, object parameter, string language)
         {
+            if (value == null)
+                return null;
+
             var format = parameter as string;
             if (String.IsNullOrWhiteSpace(format) == false)
                 return String.Format(format, value);
