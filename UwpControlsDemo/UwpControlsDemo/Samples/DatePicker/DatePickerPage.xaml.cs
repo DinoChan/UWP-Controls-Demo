@@ -25,6 +25,7 @@ namespace UwpControlsDemo
         public DatePickerPage()
         {
             this.InitializeComponent();
+            DatePicker
         }
     }
 }

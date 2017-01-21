@@ -1,22 +1,22 @@
-﻿<Page
-    x:Class="UwpControlsDemo.CalendarViewPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:UwpControlsDemo"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+﻿<Page x:Class="UwpControlsDemo.CalendarViewPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:UwpControlsDemo"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <local:SampleBrowser Header="CalendarDatePicker">
+        <local:SampleBrowser Header="CalendarView">
             <Pivot>
-                <PivotItem Header="CalendarDatePicker">
+                <PivotItem Header="CalendarView">
                     <local:SampleBroswerItem>
                         <StackPanel>
-                            <HyperlinkButton Content="Click It"
-                                             x:Name="ButtonElement"
-                                             NavigateUri="http://www.bing.com/" />
-                            <!--<ListView ItemsSource="{x:Bind Actions}"
+                            <CalendarView x:Name="CalendarView"
+                                         
+                                          CalendarViewDayItemChanging="OnCalendarViewDayItemChanging"
+                                          SelectedDatesChanged="OnSelectedDateChanged" />
+                            <ListView ItemsSource="{x:Bind Actions}"
                                       Margin="0,10,0,0"
                                       MaxHeight="500"
                                       Header="Actions">
@@ -26,24 +26,28 @@
                                                          ItemsUpdatingScrollMode="KeepLastItemInView" />
                                     </ItemsPanelTemplate>
                                 </ListView.ItemsPanel>
-                            </ListView>-->
+                            </ListView>
                         </StackPanel>
                         <local:SampleBroswerItem.PropertiesContent>
                             <StackPanel>
                                 <ToggleSwitch Header="IsEnabled"
-                                              IsOn="{x:Bind ButtonElement.IsEnabled,Mode=TwoWay}" />
-                                <ToggleSwitch Header="IsPointerOver"
-                                              IsEnabled="False"
-                                              IsOn="{Binding IsPointerOver,ElementName=ButtonElement}" />
-                                <ToggleSwitch Header="IsPressed"
-                                              IsEnabled="False"
-                                              IsOn="{Binding IsPressed,ElementName=ButtonElement}" />
-                                <TextBlock Text="ClickModel" />
+                                              IsOn="{x:Bind CalendarView.IsEnabled,Mode=TwoWay}" />
 
-                                <TextBox Text="{x:Bind ButtonElement.NavigateUri}"
-                                         IsReadOnly="True"
-                                         Header="NavigateUri"
-                                         TextWrapping="Wrap" />
+                                <ToggleSwitch Header="IsGroupLabelVisible"
+                                              IsOn="{x:Bind CalendarView.IsGroupLabelVisible,Mode=TwoWay}" />
+                                <ToggleSwitch Header="IsOutOfScopeEnabled"
+                                              IsOn="{x:Bind CalendarView.IsOutOfScopeEnabled,Mode=TwoWay}" />
+                                <ToggleSwitch Header="IsTodayHighlighted"
+                                              IsOn="{x:Bind CalendarView.IsTodayHighlighted,Mode=TwoWay}" />
+
+                                <CalendarDatePicker Header="MinDate"
+                                                    HorizontalAlignment="Stretch"
+                                                    PlaceholderText="Choose MinDate"
+                                                    Date="{Binding MinDate,ElementName=CalendarDatePicker,Mode=TwoWay}" />
+                                <CalendarDatePicker Header="MaxDate"
+                                                    HorizontalAlignment="Stretch"
+                                                    PlaceholderText="Choose MaxDate"
+                                                    Date="{Binding MaxDate,ElementName=CalendarDatePicker,Mode=TwoWay}" />
                             </StackPanel>
                         </local:SampleBroswerItem.PropertiesContent>
                     </local:SampleBroswerItem>
