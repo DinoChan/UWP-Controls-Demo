@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -24,8 +25,23 @@ namespace UwpControlsDemo
     {
         public DatePickerPage()
         {
-            this.InitializeComponent();
-            DatePicker
+            this.InitializeComponent(); Actions = new ObservableCollection<string>();
         }
+
+        public ObservableCollection<string> Actions { get; }
+
+        private void OnDateChanged(object sender, DatePickerValueChangedEventArgs e)
+        {
+            AddAction("DateChanged");
+        }
+
+
+        private void AddAction(string action)
+        {
+            var content = DateTime.Now.ToString("HH:mm:ss") + " " + action;
+            Actions.Add(content);
+        }
+
+     
     }
 }

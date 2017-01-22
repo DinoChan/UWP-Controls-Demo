@@ -15,11 +15,8 @@
                             <DatePicker x:Name="DatePicker"
                                                 Header="Calendar"
                                                 Width="200"
-                                                CalendarViewDayItemChanging="OnCalendarViewDayItemChanging"
                                                 DateChanged="OnDateChanged"
-                                                Closed="OnClosed"
-                                                Opened="OnOpened"
-                                                PlaceholderText="Choose a date" />
+                                               />
                             <ListView ItemsSource="{x:Bind Actions}"
                                       Margin="0,10,0,0"
                                       MaxHeight="500"
@@ -36,22 +33,20 @@
                             <StackPanel>
                                 <ToggleSwitch Header="IsEnabled"
                                               IsOn="{x:Bind DatePicker.IsEnabled,Mode=TwoWay}" />
-                                <ToggleSwitch Header="IsCalendarOpen"
-                                              IsOn="{x:Bind DatePicker.IsCalendarOpen,Mode=TwoWay}" />
-                                <ToggleSwitch Header="IsGroupLabelVisible"
-                                              IsOn="{x:Bind DatePicker.IsGroupLabelVisible,Mode=TwoWay}" />
-                                <ToggleSwitch Header="IsOutOfScopeEnabled"
-                                              IsOn="{x:Bind DatePicker.IsOutOfScopeEnabled,Mode=TwoWay}" />
-                                <ToggleSwitch Header="IsTodayHighlighted"
-                                              IsOn="{x:Bind DatePicker.IsTodayHighlighted,Mode=TwoWay}" />
+                              
+                                <ToggleSwitch Header="DayVisible"
+                                              IsOn="{x:Bind DatePicker.DayVisible,Mode=TwoWay}" />
+                                <ToggleSwitch Header="MonthVisible"
+                                              IsOn="{x:Bind DatePicker.MonthVisible,Mode=TwoWay}" />
+                                <ToggleSwitch Header="YearVisible"
+                                              IsOn="{x:Bind DatePicker.YearVisible,Mode=TwoWay}" />
                                 <TextBlock Text="Date" />
-                                <TextBlock Text="{Binding ElementName=CalendarDatePicker,Path=Date,Converter={StaticResource StringFormatConverter},ConverterParameter='\{0:dddd yyyy-MM-dd}',TargetNullValue='No Selected Date'}" />
+                                <TextBlock Text="{Binding ElementName=DatePicker,Path=Date,Converter={StaticResource StringFormatConverter},ConverterParameter='\{0:dddd yyyy-MM-dd}',TargetNullValue='No Selected Date'}" />
 
 
                                 <TextBox Header="Header"
-                                         Text="{x:Bind CalendarDatePicker.Header,Mode=TwoWay}" />
-                                <TextBox Header="PlaceholderText"
-                                         Text="{x:Bind CalendarDatePicker.PlaceholderText,Mode=TwoWay}" />
+                                         Text="{x:Bind DatePicker.Header,Mode=TwoWay}" />
+                               
                                 <!--<CalendarDatePicker Header="MinDate"
                                                     HorizontalAlignment="Stretch"
                                                     PlaceholderText="Choose MinDate"

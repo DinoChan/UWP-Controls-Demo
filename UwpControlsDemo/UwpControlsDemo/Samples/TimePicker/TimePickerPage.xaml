@@ -1,22 +1,22 @@
-﻿<Page
-    x:Class="UwpControlsDemo.TimePickerPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:UwpControlsDemo"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+﻿<Page x:Class="UwpControlsDemo.TimePickerPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:UwpControlsDemo"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <local:SampleBrowser Header="CalendarDatePicker">
+        <local:SampleBrowser Header="TimePicker">
             <Pivot>
-                <PivotItem Header="CalendarDatePicker">
+                <PivotItem Header="TimePicker">
                     <local:SampleBroswerItem>
                         <StackPanel>
-                            <HyperlinkButton Content="Click It"
-                                             x:Name="ButtonElement"
-                                             NavigateUri="http://www.bing.com/" />
-                            <!--<ListView ItemsSource="{x:Bind Actions}"
+                            <TimePicker x:Name="TimePicker"
+                                        Header="TimePicker"
+                                        Width="200"
+                                        TimeChanged="OnTimeChanged" />
+                            <ListView ItemsSource="{x:Bind Actions}"
                                       Margin="0,10,0,0"
                                       MaxHeight="500"
                                       Header="Actions">
@@ -26,24 +26,16 @@
                                                          ItemsUpdatingScrollMode="KeepLastItemInView" />
                                     </ItemsPanelTemplate>
                                 </ListView.ItemsPanel>
-                            </ListView>-->
+                            </ListView>
                         </StackPanel>
                         <local:SampleBroswerItem.PropertiesContent>
                             <StackPanel>
                                 <ToggleSwitch Header="IsEnabled"
-                                              IsOn="{x:Bind ButtonElement.IsEnabled,Mode=TwoWay}" />
-                                <ToggleSwitch Header="IsPointerOver"
-                                              IsEnabled="False"
-                                              IsOn="{Binding IsPointerOver,ElementName=ButtonElement}" />
-                                <ToggleSwitch Header="IsPressed"
-                                              IsEnabled="False"
-                                              IsOn="{Binding IsPressed,ElementName=ButtonElement}" />
-                                <TextBlock Text="ClickModel" />
+                                              IsOn="{x:Bind TimePicker.IsEnabled,Mode=TwoWay}" />
 
-                                <TextBox Text="{x:Bind ButtonElement.NavigateUri}"
-                                         IsReadOnly="True"
-                                         Header="NavigateUri"
-                                         TextWrapping="Wrap" />
+
+                                <TextBox Header="Header"
+                                         Text="{x:Bind TimePicker.Header,Mode=TwoWay}" />
                             </StackPanel>
                         </local:SampleBroswerItem.PropertiesContent>
                     </local:SampleBroswerItem>
