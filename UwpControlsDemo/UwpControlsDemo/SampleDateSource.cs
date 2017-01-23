@@ -34,7 +34,7 @@ namespace UwpControlsDemo
 
             pages.Add(group);
             group = new PageItemGroup("Images");
-            group.Items.Add(new PageItem { Title = "Image" });
+            group.Items.Add(new PageItem { Title = "Image" ,Type=typeof(ImagePage)});
             pages.Add(group);
             group = new PageItemGroup("Graphics");
             group.Items.Add(new PageItem { Title = "Ellipse" });
