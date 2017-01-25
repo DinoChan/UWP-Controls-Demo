@@ -11,7 +11,7 @@
             <Pivot>
                 <PivotItem Header="DatePicker">
                     <local:SampleBroswerItem>
-                        <StackPanel>
+                        <StackPanel> 
                             <DatePicker x:Name="DatePicker"
                                                 Header="Calendar"
                                                 Width="200"

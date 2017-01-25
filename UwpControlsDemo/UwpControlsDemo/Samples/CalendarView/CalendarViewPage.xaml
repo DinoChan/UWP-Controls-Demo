@@ -52,7 +52,7 @@
                         </local:SampleBroswerItem.PropertiesContent>
                     </local:SampleBroswerItem>
                 </PivotItem>
-            </Pivot>
+            </Pivot> 
             <local:SampleBrowser.Information>
                 <StackPanel>
                     <TextBlock  TextWrapping="Wrap"
