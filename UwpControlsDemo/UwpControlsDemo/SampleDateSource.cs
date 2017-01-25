@@ -34,7 +34,7 @@ namespace UwpControlsDemo
 
             pages.Add(group);
             group = new PageItemGroup("Images");
-            group.Items.Add(new PageItem { Title = "Image" ,Type=typeof(ImagePage)});
+            group.Items.Add(new PageItem { Title = "Image", Type = typeof(ImagePage) });
             pages.Add(group);
             group = new PageItemGroup("Graphics");
             group.Items.Add(new PageItem { Title = "Ellipse" });
@@ -82,15 +82,15 @@ namespace UwpControlsDemo
             group = new PageItemGroup("Selection controls");
             group.Items.Add(new PageItem { Title = "CheckBox", Type = typeof(CheckBoxPage) });
             group.Items.Add(new PageItem { Title = "ToggleButton", Type = typeof(ToggleButtonPage) });
-            group.Items.Add(new PageItem { Title = "ComboBox " });
-            group.Items.Add(new PageItem { Title = "DatePicker",Type=typeof(DatePickerPage) });
+            group.Items.Add(new PageItem { Title = "ComboBox", Type = typeof(ComboBoxPage) });
+            group.Items.Add(new PageItem { Title = "DatePicker", Type = typeof(DatePickerPage) });
             group.Items.Add(new PageItem { Title = "CalendarDatePicker", Type = typeof(CalendarDatePickerPage) });
             group.Items.Add(new PageItem { Title = "CalendarView", Type = typeof(CalendarViewPage) });
-            group.Items.Add(new PageItem { Title = "ListBox  " });
-            group.Items.Add(new PageItem { Title = "RadioButton  " });
-            group.Items.Add(new PageItem { Title = "Slider",Type=typeof(SliderPage) });
-            group.Items.Add(new PageItem { Title = "TimePicker",Type=typeof(TimePickerPage) });
-            group.Items.Add(new PageItem { Title = "ToggleSwitch    " });
+            group.Items.Add(new PageItem { Title = "ListBox", Type = typeof(ListBoxPage) });
+            group.Items.Add(new PageItem { Title = "RadioButton", Type = typeof(RadioButtonPage) });
+            group.Items.Add(new PageItem { Title = "Slider", Type = typeof(SliderPage) });
+            group.Items.Add(new PageItem { Title = "TimePicker", Type = typeof(TimePickerPage) });
+            group.Items.Add(new PageItem { Title = "ToggleSwitch", Type = typeof(ToggleSwitchPage) });
             pages.Add(group);
             return pages;
         }

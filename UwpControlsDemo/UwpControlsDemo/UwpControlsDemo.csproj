@@ -121,6 +121,9 @@
     <Compile Include="Samples\CheckBox\CheckBoxPage.xaml.cs">
       <DependentUpon>CheckBoxPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Samples\ComboBox\ComboBoxPage.xaml.cs">
+      <DependentUpon>ComboBoxPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Samples\DatePicker\DatePickerPage.xaml.cs">
       <DependentUpon>DatePickerPage.xaml</DependentUpon>
     </Compile>
@@ -129,6 +132,12 @@
     </Compile>
     <Compile Include="Samples\Image\ImagePage.xaml.cs">
       <DependentUpon>ImagePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\ListBox\ListBoxPage.xaml.cs">
+      <DependentUpon>ListBoxPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\RadioButton\RadioButtonPage.xaml.cs">
+      <DependentUpon>RadioButtonPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Samples\RepeatButton\RepeatButtonPage.xaml.cs">
       <DependentUpon>RepeatButtonPage.xaml</DependentUpon>
@@ -141,6 +150,9 @@
     </Compile>
     <Compile Include="Samples\ToggleButton\ToggleButtonPage.xaml.cs">
       <DependentUpon>ToggleButtonPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\ToggleSwitch\ToggleSwitchPage.xaml.cs">
+      <DependentUpon>ToggleSwitchPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -191,6 +203,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Samples\ComboBox\ComboBoxPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Samples\DatePicker\DatePickerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -200,6 +216,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Samples\Image\ImagePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\ListBox\ListBoxPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\RadioButton\RadioButtonPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -216,6 +240,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Samples\ToggleButton\ToggleButtonPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\ToggleSwitch\ToggleSwitchPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
