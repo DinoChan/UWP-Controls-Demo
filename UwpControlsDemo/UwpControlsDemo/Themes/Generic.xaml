@@ -51,6 +51,7 @@
                             <ContentPresenter />
                             <ContentControl Grid.Column="1"
                                             Width="300" Padding="10"
+                                            HorizontalContentAlignment="Stretch"
                                             Content="{TemplateBinding PropertiesContent}" />
                         </Grid>
                     </Border>

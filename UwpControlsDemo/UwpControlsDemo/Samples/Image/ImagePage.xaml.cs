@@ -27,9 +27,15 @@ namespace UwpControlsDemo
         public ImagePage()
         {
             this.InitializeComponent();
-            
+
             Actions = new ObservableCollection<string>();
             Stretches = new List<Stretch> { Stretch.Fill, Stretch.None, Stretch.Uniform, Stretch.UniformToFill };
+            Loaded += OnLoaded;
+        }
+
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            Image.Source = SourceComboBox.Items.FirstOrDefault() as ImageSource;
         }
 
         public ObservableCollection<string> Actions { get; }

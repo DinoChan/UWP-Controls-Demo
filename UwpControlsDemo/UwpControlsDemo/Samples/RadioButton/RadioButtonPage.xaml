@@ -52,8 +52,6 @@
                                         </DataTemplate>
                                     </ListBox.ItemTemplate>
                                 </ListBox>
-                                <ToggleSwitch Header="Button A IsThreeState"
-                                              IsOn="{x:Bind ButtonElement.IsThreeState,Mode=TwoWay}" />
                             </StackPanel>
                         </local:SampleBroswerItem.PropertiesContent>
                     </local:SampleBroswerItem>
