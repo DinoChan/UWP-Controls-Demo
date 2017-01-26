@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -25,6 +26,38 @@ namespace UwpControlsDemo
         public RadioButtonPage()
         {
             this.InitializeComponent();
+            Actions = new ObservableCollection<string>();
+
+            ClickModes = new List<ClickMode> { ClickMode.Hover, ClickMode.Press, ClickMode.Release };
+        }
+
+        public ObservableCollection<string> Actions { get; }
+
+        public IEnumerable<ClickMode> ClickModes { get; }
+
+
+        private void OnButtonClick(object sender, RoutedEventArgs e)
+        {
+            var action = DateTime.Now.ToString("HH:mm:ss") + " Clicked";
+            Actions.Add(action);
+        }
+
+        private void OnChecked(object sender, RoutedEventArgs e)
+        {
+            var action = DateTime.Now.ToString("HH:mm:ss") + " Checked";
+            Actions.Add(action);
+        }
+
+        private void OnUnchecked(object sender, RoutedEventArgs e)
+        {
+            var action = DateTime.Now.ToString("HH:mm:ss") + " Unchecked";
+            Actions.Add(action);
+        }
+
+        private void OnIndeterminate(object sender, RoutedEventArgs e)
+        {
+            var action = DateTime.Now.ToString("HH:mm:ss") + " Indeterminate";
+            Actions.Add(action);
         }
     }
 }
