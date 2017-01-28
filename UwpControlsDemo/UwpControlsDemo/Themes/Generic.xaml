@@ -16,18 +16,19 @@
                             </Grid.RowDefinitions>
                             <CommandBar>
                                 <CommandBar.Content>
-                                    <TextBlock Text="{TemplateBinding Header}"  Margin="20,0,0,0"/>
+                                    <TextBlock Text="{TemplateBinding Header}"
+                                               Margin="20,0,0,0" />
                                 </CommandBar.Content>
                                 <AppBarToggleButton x:Name="InformationButton"
                                                     Icon="Help"
-                                                    Label="Help"
-                                                   />
+                                                    Label="Help" />
                             </CommandBar>
                             <ContentPresenter Grid.Row="1" />
                             <Grid Grid.Row="1"
                                   Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
                                   Visibility="{Binding ElementName=InformationButton,Path=IsChecked}">
-                                <ContentControl Content="{TemplateBinding Information}" Padding="20"/>
+                                <ContentControl Content="{TemplateBinding Information}"
+                                                Padding="20" />
                             </Grid>
                         </Grid>
                     </Border>
@@ -50,10 +51,30 @@
                             </Grid.ColumnDefinitions>
                             <ContentPresenter />
                             <ContentControl Grid.Column="1"
-                                            Width="300" Padding="10"
+                                            Width="300"
+                                            Padding="10"
                                             HorizontalContentAlignment="Stretch"
                                             Content="{TemplateBinding PropertiesContent}" />
                         </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:EventListViewItem">
+        <Setter Property="Padding"
+                Value="5" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:EventListViewItem">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <StackPanel Orientation="Horizontal">
+                            <ContentControl Content="{TemplateBinding Header}" />
+                            <ContentPresenter Margin="5,0,0,0"/>
+                        </StackPanel>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
