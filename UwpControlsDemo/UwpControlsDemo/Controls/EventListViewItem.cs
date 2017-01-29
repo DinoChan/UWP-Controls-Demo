@@ -13,7 +13,7 @@ using Windows.UI.Xaml.Media;
 
 namespace UwpControlsDemo
 {
-    public sealed class EventListViewItem : ContentControl
+    public sealed class EventListViewItem : ListViewItem
     {
         public EventListViewItem()
         {

@@ -38,25 +38,25 @@ namespace UwpControlsDemo
 
         private void OnButtonClick(object sender, RoutedEventArgs e)
         {
-            var action = DateTime.Now.ToString("HH:mm:ss") + " Clicked";
+            var action = "Clicked";
             Actions.Add(action);
         }
 
         private void OnChecked(object sender, RoutedEventArgs e)
         {
-            var action = DateTime.Now.ToString("HH:mm:ss") + " Checked";
+            var action = "Checked";
             Actions.Add(action);
         }
 
         private void OnUnchecked(object sender, RoutedEventArgs e)
         {
-            var action = DateTime.Now.ToString("HH:mm:ss") + " Unchecked";
+            var action = "Unchecked";
             Actions.Add(action);
         }
 
         private void OnIndeterminate(object sender, RoutedEventArgs e)
         {
-            var action = DateTime.Now.ToString("HH:mm:ss") + " Indeterminate";
+            var action = "Indeterminate";
             Actions.Add(action);
         }
     }

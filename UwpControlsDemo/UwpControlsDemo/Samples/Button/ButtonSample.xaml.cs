@@ -34,7 +34,7 @@ namespace UwpControlsDemo
 
         private void OnButtonClick(object sender, RoutedEventArgs e)
         {
-            var action = DateTime.Now.ToString("HH:mm:ss") + " Clicked";
+            var action =  "Clicked";
             Actions.Add(action);
         }
     }

@@ -10,7 +10,11 @@
 
     <Grid>
         <local:SampleBroswerItem>
-            <StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
                 <Button Content="Click It"
                         x:Name="ButtonElement"
                         Click="OnButtonClick" />
@@ -25,8 +29,16 @@
                         </ItemsPanelTemplate>
                     </ListView.ItemsPanel>
                 </ListView>-->
-                <local:EventListView ItemsSource="{x:Bind Actions}"/>
-            </StackPanel>
+                <local:EventListView ItemsSource="{x:Bind Actions}"
+                                     Header="Actions"
+                                     Grid.Row="1">
+                    <local:EventListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <ItemsStackPanel ItemsUpdatingScrollMode="KeepLastItemInView" />
+                        </ItemsPanelTemplate>
+                    </local:EventListView.ItemsPanel>
+                </local:EventListView>
+            </Grid>
             <local:SampleBroswerItem.PropertiesContent>
                 <StackPanel>
 

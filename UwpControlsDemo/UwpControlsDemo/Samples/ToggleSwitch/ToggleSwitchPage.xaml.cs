@@ -40,8 +40,7 @@ namespace UwpControlsDemo
 
         private void AddAction(string action)
         {
-            var content = DateTime.Now.ToString("HH:mm:ss") + " " + action;
-            Actions.Add(content);
+            Actions.Add(action);
         }
 
 

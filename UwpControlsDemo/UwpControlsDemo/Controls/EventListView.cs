@@ -16,10 +16,10 @@ namespace UwpControlsDemo
             _items = new Dictionary<object, DateTime>();
         }
 
-        //protected override DependencyObject GetContainerForItemOverride()
-        //{
-        //    return new EventListViewItem();
-        //}
+        protected override DependencyObject GetContainerForItemOverride()
+        {
+            return new EventListViewItem();
+        }
 
 
         private Dictionary<object, DateTime> _items;
@@ -27,7 +27,6 @@ namespace UwpControlsDemo
         protected override void PrepareContainerForItemOverride(DependencyObject element, object item)
         {
             base.PrepareContainerForItemOverride(element, item);
-            return;
             var eventListViewItem = element as EventListViewItem;
             var time = _items[item];
             eventListViewItem.Content = item;
