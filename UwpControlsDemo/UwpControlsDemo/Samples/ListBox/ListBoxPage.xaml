@@ -1,13 +1,63 @@
-﻿<Page
-    x:Class="UwpControlsDemo.ListBoxPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:UwpControlsDemo"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+﻿<Page x:Class="UwpControlsDemo.ListBoxPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:UwpControlsDemo"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <local:SampleBrowser Header="ListBox">
+            <Pivot>
+                <PivotItem Header="ListBox">
+                    <local:SampleBroswerItem>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <ListBox x:Name="ListBox"
+                                     ItemsSource="{x:Bind Items}"
+                                     SelectionChanged="OnSelectionChanged" />
 
+                            <local:EventListView ItemsSource="{x:Bind Actions}"
+                                                 Header="Actions"
+                                                 Grid.Row="2">
+                                <local:EventListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <ItemsStackPanel ItemsUpdatingScrollMode="KeepLastItemInView" />
+                                    </ItemsPanelTemplate>
+                                </local:EventListView.ItemsPanel>
+                            </local:EventListView>
+                        </Grid>
+                        <local:SampleBroswerItem.PropertiesContent>
+                            <StackPanel>
+
+
+                                <ComboBox ItemsSource="{x:Bind SelectionModes}"
+                                          Header="Stretch"
+                                          SelectedItem="{Binding ElementName=ListBox,Mode=TwoWay,Path=SelectionMode}">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+
+                            </StackPanel>
+                        </local:SampleBroswerItem.PropertiesContent>
+                    </local:SampleBroswerItem>
+                </PivotItem>
+            </Pivot>
+            <local:SampleBrowser.Information>
+                <StackPanel>
+                    <TextBlock  TextWrapping="Wrap"
+                                Text="表示显示图像的控件。图像源通过引用使用几个受支持的格式的图像文件指定。图像源还可使用流进行设置。。" />
+                    <HyperlinkButton NavigateUri="https://msdn.microsoft.com/zh-cn/windows/uwp/controls-and-patterns/images-imagebrushes#%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%9A%84-image-%E5%92%8C-imagebrush"
+                                     Content="图像和图像画笔_ MSDN" />
+                </StackPanel>
+            </local:SampleBrowser.Information>
+        </local:SampleBrowser>
     </Grid>
 </Page>
