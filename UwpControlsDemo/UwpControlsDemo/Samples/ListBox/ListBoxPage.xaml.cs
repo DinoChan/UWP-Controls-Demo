@@ -34,6 +34,7 @@ namespace UwpControlsDemo
             {
                 AddItem();
             }
+            SelectedItems = new ObservableCollection<int>();
         }
 
 
@@ -61,6 +62,8 @@ namespace UwpControlsDemo
             }
         }
 
+        public ObservableCollection<int> SelectedItems { get; private set; }
+
         private bool _canRemoveItems;
 
         private int _index;
@@ -76,6 +79,11 @@ namespace UwpControlsDemo
         {
             AddAction("SelectionChanged");
             CanRemoveItems = ListBox.SelectedItems.Any();
+            SelectedItems.Clear();
+            foreach (var item in ListBox.SelectedItems)
+            {
+                SelectedItems.Add((int)item);
+            }
         }
 
         private void AddItem()
@@ -89,6 +97,16 @@ namespace UwpControlsDemo
             {
                 Items.Remove((int)item);
             }
+        }
+
+        private void OnAddItem(object sender, RoutedEventArgs e)
+        {
+            AddItem();
+        }
+
+        private void OnRemoveItems(object sender, RoutedEventArgs e)
+        {
+            RemoveCurrentItems();
         }
     }
 }

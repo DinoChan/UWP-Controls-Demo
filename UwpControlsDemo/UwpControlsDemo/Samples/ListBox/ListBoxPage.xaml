@@ -20,9 +20,26 @@
                             <ListBox x:Name="ListBox"
                                      ItemsSource="{x:Bind Items}"
                                      SelectionChanged="OnSelectionChanged" />
-
+                            <ListView ItemsSource="{x:Bind SelectedItems}"
+                                      Grid.Row="1"
+                                      Header="SelectedItems"
+                                      Margin="0,10,0,0"
+                                      SelectionMode="None">
+                                <!--<ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}"
+                                                   Margin="0,5,5,5" />
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>-->
+                                <ListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <ItemsWrapGrid />
+                                    </ItemsPanelTemplate>
+                                </ListView.ItemsPanel>
+                            </ListView>
                             <local:EventListView ItemsSource="{x:Bind Actions}"
                                                  Header="Actions"
+                                                 Margin="0,10,0,0"
                                                  Grid.Row="2">
                                 <local:EventListView.ItemsPanel>
                                     <ItemsPanelTemplate>
@@ -33,8 +50,8 @@
                         </Grid>
                         <local:SampleBroswerItem.PropertiesContent>
                             <StackPanel>
-
-
+                                <ToggleSwitch Header="IsEnabled"
+                                              IsOn="{x:Bind ListBox.IsEnabled,Mode=TwoWay}" />
                                 <ComboBox ItemsSource="{x:Bind SelectionModes}"
                                           Header="Stretch"
                                           SelectedItem="{Binding ElementName=ListBox,Mode=TwoWay,Path=SelectionMode}">
@@ -44,7 +61,17 @@
                                         </DataTemplate>
                                     </ComboBox.ItemTemplate>
                                 </ComboBox>
-
+                                <!--<TextBox Header="Header"
+                                         Text="{x:Bind ListBox.Header,Mode=TwoWay}" />-->
+                                <Button Content="Add Item"
+                                        Click="OnAddItem"
+                                        Width="100"
+                                        Margin="0,10,0,0" />
+                                <Button Content="Remove Selected Items"
+                                        Click="OnRemoveItems"
+                                        IsEnabled="{x:Bind CanRemoveItems,Mode=TwoWay}"
+                                        Width="200"
+                                        Margin="0,10,0,0" />
                             </StackPanel>
                         </local:SampleBroswerItem.PropertiesContent>
                     </local:SampleBroswerItem>
