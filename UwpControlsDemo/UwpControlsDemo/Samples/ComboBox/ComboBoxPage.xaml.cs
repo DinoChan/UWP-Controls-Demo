@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -25,7 +26,37 @@ namespace UwpControlsDemo
         public ComboBoxPage()
         {
             this.InitializeComponent();
-            
+            Actions = new ObservableCollection<string>();
+            Items = new ObservableCollection<int>();
+            for (int i = 0; i < 10; i++)
+            {
+                Items.Add(i);
+            }
+        }
+
+        public ObservableCollection<int> Items { get; private set; }
+
+        public ObservableCollection<string> Actions { get; }
+
+
+        private void AddAction(string action)
+        {
+            Actions.Add(action);
+        }
+
+        private void OnDropDownOpened(object sender, object e)
+        {
+            AddAction("DropDownOpened");
+        }
+
+        private void OnDropDownClosed(object sender, object e)
+        {
+            AddAction("DropDownClosed");
+        }
+
+        private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            AddAction("SelectionChanged");
         }
     }
 }

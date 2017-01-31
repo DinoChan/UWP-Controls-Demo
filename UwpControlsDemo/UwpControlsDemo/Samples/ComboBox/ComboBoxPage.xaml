@@ -1,13 +1,64 @@
-﻿<Page
-    x:Class="UwpControlsDemo.ComboBoxPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:UwpControlsDemo"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+﻿<Page x:Class="UwpControlsDemo.ComboBoxPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:UwpControlsDemo"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <local:SampleBrowser Header="ComboBox">
+            <Pivot>
+                <PivotItem Header="ComboBox">
+                    <local:SampleBroswerItem>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <ComboBox x:Name="ComboBox"
+                                      Header="ComboBox"
+                                      ItemsSource="{x:Bind Items}"
+                                      Width="200"
+                                      DropDownOpened="OnDropDownOpened"
+                                      DropDownClosed="OnDropDownClosed"
+                                      SelectionChanged="OnSelectionChanged"
+                                      PlaceholderText="Choose a item" />
+                            <local:EventListView ItemsSource="{x:Bind Actions}"
+                                                 Header="Actions"
+                                                 Grid.Row="1">
+                                <local:EventListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <ItemsStackPanel ItemsUpdatingScrollMode="KeepLastItemInView" />
+                                    </ItemsPanelTemplate>
+                                </local:EventListView.ItemsPanel>
+                            </local:EventListView>
+                        </Grid>
+                        <local:SampleBroswerItem.PropertiesContent>
+                            <StackPanel>
+                                <ToggleSwitch Header="IsEnabled"
+                                              IsOn="{x:Bind ComboBox.IsEnabled,Mode=TwoWay}" />
+                                <ToggleSwitch Header="IsDropDownOpen"
+                                              IsOn="{x:Bind ComboBox.IsDropDownOpen,Mode=TwoWay}" />
 
+
+                                <TextBox Header="Header"
+                                         Text="{x:Bind ComboBox.Header,Mode=TwoWay}" />
+                                <TextBox Header="PlaceholderText"
+                                         Text="{x:Bind ComboBox.PlaceholderText,Mode=TwoWay}" />
+                            </StackPanel>
+                        </local:SampleBroswerItem.PropertiesContent>
+                    </local:SampleBroswerItem>
+                </PivotItem>
+            </Pivot>
+            <local:SampleBrowser.Information>
+                <StackPanel>
+                    <TextBlock  TextWrapping="Wrap"
+                                Text="表示选择控件，该控件组合一个不可编辑的文本框和一个下拉列表框，该下拉列表框允许用户从列表中选择项。 " />
+                    <HyperlinkButton NavigateUri="https://msdn.microsoft.com/library/windows/apps/br209348"
+                                     Content="ComboBox class - Windows app development" />
+                </StackPanel>
+            </local:SampleBrowser.Information>
+        </local:SampleBrowser>
     </Grid>
 </Page>
