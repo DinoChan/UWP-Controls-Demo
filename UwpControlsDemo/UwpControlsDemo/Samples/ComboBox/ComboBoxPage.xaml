@@ -40,8 +40,6 @@
                                               IsOn="{x:Bind ComboBox.IsEnabled,Mode=TwoWay}" />
                                 <ToggleSwitch Header="IsDropDownOpen"
                                               IsOn="{x:Bind ComboBox.IsDropDownOpen,Mode=TwoWay}" />
-
-
                                 <TextBox Header="Header"
                                          Text="{x:Bind ComboBox.Header,Mode=TwoWay}" />
                                 <TextBox Header="PlaceholderText"
