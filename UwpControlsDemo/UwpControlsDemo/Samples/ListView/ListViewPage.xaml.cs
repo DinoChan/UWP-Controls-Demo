@@ -28,9 +28,9 @@ namespace UwpControlsDemo
         {
             this.InitializeComponent();
             Actions = new ObservableCollection<string>();
-            SelectionModes = new List<SelectionMode> { SelectionMode.Extended, SelectionMode.Multiple, SelectionMode.Single };
+            SelectionModes = new List<ListViewSelectionMode> { ListViewSelectionMode.Extended, ListViewSelectionMode.Multiple, ListViewSelectionMode.Single , ListViewSelectionMode .None};
             Items = new ObservableCollection<int>();
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 20; i++)
             {
                 AddItem();
             }
@@ -40,7 +40,7 @@ namespace UwpControlsDemo
 
         public ObservableCollection<string> Actions { get; }
 
-        public IEnumerable<SelectionMode> SelectionModes { get; }
+        public IEnumerable<ListViewSelectionMode> SelectionModes { get; }
 
         public ObservableCollection<int> Items { get; private set; }
 
@@ -78,9 +78,9 @@ namespace UwpControlsDemo
         private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             AddAction("SelectionChanged");
-            CanRemoveItems = ListBox.SelectedItems.Any();
+            CanRemoveItems = ListView.SelectedItems.Any();
             SelectedItems.Clear();
-            foreach (var item in ListBox.SelectedItems)
+            foreach (var item in ListView.SelectedItems)
             {
                 SelectedItems.Add((int)item);
             }
@@ -93,7 +93,7 @@ namespace UwpControlsDemo
 
         private void RemoveCurrentItems()
         {
-            foreach (var item in ListBox.SelectedItems.ToList())
+            foreach (var item in ListView.SelectedItems.ToList())
             {
                 Items.Remove((int)item);
             }
@@ -107,6 +107,36 @@ namespace UwpControlsDemo
         private void OnRemoveItems(object sender, RoutedEventArgs e)
         {
             RemoveCurrentItems();
+        }
+
+        private void OnChoosingGroupHeaderContainer(ListViewBase sender, ChoosingGroupHeaderContainerEventArgs args)
+        {
+            AddAction("ChoosingGroupHeaderContainer");
+        }
+
+        private void OnChoosingItemContainer(ListViewBase sender, ChoosingItemContainerEventArgs args)
+        {
+            AddAction("ChoosingItemContainer");
+        }
+
+        private void OnContainerContentChanging(ListViewBase sender, ContainerContentChangingEventArgs args)
+        {
+            AddAction("ContainerContentChanging");
+        }
+
+        private void OnDragItemsCompleted(ListViewBase sender, DragItemsCompletedEventArgs args)
+        {
+            AddAction("DragItemsCompleted");
+        }
+
+        private void OnDragItemsStarting(object sender, DragItemsStartingEventArgs e)
+        {
+            AddAction("DragItemsStarting");
+        }
+
+        private void OnItemClick(object sender, ItemClickEventArgs e)
+        {
+            AddAction("ItemClick");
         }
     }
 }

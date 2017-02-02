@@ -1,11 +1,10 @@
-﻿<Page
-    x:Class="UwpControlsDemo.ListViewPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:UwpControlsDemo"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+﻿<Page x:Class="UwpControlsDemo.ListViewPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:UwpControlsDemo"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <local:SampleBrowser Header="ListBox">
@@ -18,9 +17,15 @@
                                 <RowDefinition />
                                 <RowDefinition />
                             </Grid.RowDefinitions>
-                            <ListBox x:Name="ListBox"
-                                     ItemsSource="{x:Bind Items}"
-                                     SelectionChanged="OnSelectionChanged" />
+                            <ListView x:Name="ListView"
+                                      ItemsSource="{x:Bind Items}"
+                                      SelectionChanged="OnSelectionChanged"
+                                      ChoosingGroupHeaderContainer="OnChoosingGroupHeaderContainer"
+                                      ChoosingItemContainer="OnChoosingItemContainer"
+                                      ContainerContentChanging="OnContainerContentChanging"
+                                      DragItemsCompleted="OnDragItemsCompleted"
+                                      DragItemsStarting="OnDragItemsStarting"
+                                      ItemClick="OnItemClick" />
                             <ListView ItemsSource="{x:Bind SelectedItems}"
                                       Grid.Row="1"
                                       Header="SelectedItems"
@@ -52,18 +57,24 @@
                         <local:SampleBroswerItem.PropertiesContent>
                             <StackPanel>
                                 <ToggleSwitch Header="IsEnabled"
-                                              IsOn="{x:Bind ListBox.IsEnabled,Mode=TwoWay}" />
+                                              IsOn="{x:Bind ListView.IsEnabled,Mode=TwoWay}" />
+
+                                <ToggleSwitch Header="IsItemClickEnabled"
+                                              IsOn="{x:Bind ListView.IsItemClickEnabled,Mode=TwoWay}" />
+                                <ToggleSwitch Header="IsMultiSelectCheckBoxEnabled"
+                                              IsOn="{x:Bind ListView.IsMultiSelectCheckBoxEnabled,Mode=TwoWay}" />
+
                                 <ComboBox ItemsSource="{x:Bind SelectionModes}"
-                                          Header="Stretch"
-                                          SelectedItem="{Binding ElementName=ListBox,Mode=TwoWay,Path=SelectionMode}">
+                                          Header="SelectionMode"
+                                          SelectedItem="{Binding ElementName=ListView,Mode=TwoWay,Path=SelectionMode}">
                                     <ComboBox.ItemTemplate>
                                         <DataTemplate>
                                             <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
                                         </DataTemplate>
                                     </ComboBox.ItemTemplate>
                                 </ComboBox>
-                                <!--<TextBox Header="Header"
-                                         Text="{x:Bind ListBox.Header,Mode=TwoWay}" />-->
+                                <TextBox Header="Header"
+                                         Text="{x:Bind ListView.Header,Mode=TwoWay}" />
                                 <Button Content="Add Item"
                                         Click="OnAddItem"
                                         Width="100"

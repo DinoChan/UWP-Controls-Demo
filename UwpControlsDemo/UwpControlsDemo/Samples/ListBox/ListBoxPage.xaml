@@ -53,7 +53,7 @@
                                 <ToggleSwitch Header="IsEnabled"
                                               IsOn="{x:Bind ListBox.IsEnabled,Mode=TwoWay}" />
                                 <ComboBox ItemsSource="{x:Bind SelectionModes}"
-                                          Header="Stretch"
+                                          Header="SelectionMode"
                                           SelectedItem="{Binding ElementName=ListBox,Mode=TwoWay,Path=SelectionMode}">
                                     <ComboBox.ItemTemplate>
                                         <DataTemplate>
