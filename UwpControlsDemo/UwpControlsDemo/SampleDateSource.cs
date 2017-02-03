@@ -88,6 +88,7 @@ namespace UwpControlsDemo
             group.Items.Add(new PageItem { Title = "CalendarView", Type = typeof(CalendarViewPage) });
             group.Items.Add(new PageItem { Title = "ListBox", Type = typeof(ListBoxPage) });
             group.Items.Add(new PageItem { Title = "ListView", Type = typeof(ListViewPage) });
+            group.Items.Add(new PageItem { Title = "GridView", Type = typeof(GridViewPage) });
             group.Items.Add(new PageItem { Title = "RadioButton", Type = typeof(RadioButtonPage) });
             group.Items.Add(new PageItem { Title = "Slider", Type = typeof(SliderPage) });
             group.Items.Add(new PageItem { Title = "TimePicker", Type = typeof(TimePickerPage) });

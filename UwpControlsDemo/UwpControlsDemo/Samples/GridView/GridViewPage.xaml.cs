@@ -22,13 +22,13 @@ namespace UwpControlsDemo
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class ListViewPage : Page, INotifyPropertyChanged
+    public sealed partial class GridViewPage : Page, INotifyPropertyChanged
     {
-        public ListViewPage()
+        public GridViewPage()
         {
             this.InitializeComponent();
             Actions = new ObservableCollection<string>();
-            SelectionModes = new List<ListViewSelectionMode> { ListViewSelectionMode.Extended, ListViewSelectionMode.Multiple, ListViewSelectionMode.Single , ListViewSelectionMode .None};
+            SelectionModes = new List<ListViewSelectionMode> { ListViewSelectionMode.Extended, ListViewSelectionMode.Multiple, ListViewSelectionMode.Single, ListViewSelectionMode.None };
             Items = new ObservableCollection<int>();
             for (int i = 0; i < 20; i++)
             {
@@ -78,9 +78,9 @@ namespace UwpControlsDemo
         private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             AddAction("SelectionChanged");
-            CanRemoveItems = ListView.SelectedItems.Any();
+            CanRemoveItems = GridView.SelectedItems.Any();
             SelectedItems.Clear();
-            foreach (var item in ListView.SelectedItems)
+            foreach (var item in GridView.SelectedItems)
             {
                 SelectedItems.Add((int)item);
             }
@@ -93,7 +93,7 @@ namespace UwpControlsDemo
 
         private void RemoveCurrentItems()
         {
-            foreach (var item in ListView.SelectedItems.ToList())
+            foreach (var item in GridView.SelectedItems.ToList())
             {
                 Items.Remove((int)item);
             }

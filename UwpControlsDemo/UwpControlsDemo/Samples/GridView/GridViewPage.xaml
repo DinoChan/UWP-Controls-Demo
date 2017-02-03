@@ -1,0 +1,102 @@
+﻿<Page x:Class="UwpControlsDemo.GridViewPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:UwpControlsDemo"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <local:SampleBrowser Header="ListBox">
+            <Pivot>
+                <PivotItem Header="ListBox">
+                    <local:SampleBroswerItem>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <GridView x:Name="GridView"
+                                      ItemsSource="{x:Bind Items}"
+                                      SelectionChanged="OnSelectionChanged"
+                                      ChoosingGroupHeaderContainer="OnChoosingGroupHeaderContainer"
+                                      ChoosingItemContainer="OnChoosingItemContainer"
+                                      ContainerContentChanging="OnContainerContentChanging"
+                                      DragItemsCompleted="OnDragItemsCompleted"
+                                      DragItemsStarting="OnDragItemsStarting"
+                                      ItemClick="OnItemClick" />
+                            <ListView ItemsSource="{x:Bind SelectedItems}"
+                                      Grid.Row="1"
+                                      Header="SelectedItems"
+                                      Margin="0,10,0,0"
+                                      SelectionMode="None">
+                                <!--<ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}"
+                                                   Margin="0,5,5,5" />
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>-->
+                                <ListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <ItemsWrapGrid />
+                                    </ItemsPanelTemplate>
+                                </ListView.ItemsPanel>
+                            </ListView>
+                            <local:EventListView ItemsSource="{x:Bind Actions}"
+                                                 Header="Actions"
+                                                 Margin="0,10,0,0"
+                                                 Grid.Row="2">
+                                <local:EventListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <ItemsStackPanel ItemsUpdatingScrollMode="KeepLastItemInView" />
+                                    </ItemsPanelTemplate>
+                                </local:EventListView.ItemsPanel>
+                            </local:EventListView>
+                        </Grid>
+                        <local:SampleBroswerItem.PropertiesContent>
+                            <StackPanel>
+                                <ToggleSwitch Header="IsEnabled"
+                                              IsOn="{x:Bind GridView.IsEnabled,Mode=TwoWay}" />
+
+                                <ToggleSwitch Header="IsItemClickEnabled"
+                                              IsOn="{x:Bind GridView.IsItemClickEnabled,Mode=TwoWay}" />
+                                <ToggleSwitch Header="IsMultiSelectCheckBoxEnabled"
+                                              IsOn="{x:Bind GridView.IsMultiSelectCheckBoxEnabled,Mode=TwoWay}" />
+
+                                <ComboBox ItemsSource="{x:Bind SelectionModes}"
+                                          Header="SelectionMode"
+                                          SelectedItem="{Binding ElementName=GridView,Mode=TwoWay,Path=SelectionMode}">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+                                <TextBox Header="Header"
+                                         Text="{x:Bind GridView.Header,Mode=TwoWay}" />
+                                <Button Content="Add Item"
+                                        Click="OnAddItem"
+                                        Width="100"
+                                        Margin="0,10,0,0" />
+                                <Button Content="Remove Selected Items"
+                                        Click="OnRemoveItems"
+                                        IsEnabled="{x:Bind CanRemoveItems,Mode=TwoWay}"
+                                        Width="200"
+                                        Margin="0,10,0,0" />
+                            </StackPanel>
+                        </local:SampleBroswerItem.PropertiesContent>
+                    </local:SampleBroswerItem>
+                </PivotItem>
+            </Pivot>
+            <local:SampleBrowser.Information>
+                <StackPanel>
+                    <TextBlock  TextWrapping="Wrap"
+                                Text="表示用于显示数据项的水平网格的控件。" />
+                    <HyperlinkButton NavigateUri="https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.gridview.aspx"
+                                     Content="GridView class - Windows app development_aspx" />
+                </StackPanel>
+            </local:SampleBrowser.Information>
+        </local:SampleBrowser>
+    </Grid>
+</Page>
