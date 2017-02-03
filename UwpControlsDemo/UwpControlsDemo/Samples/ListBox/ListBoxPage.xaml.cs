@@ -30,7 +30,7 @@ namespace UwpControlsDemo
             Actions = new ObservableCollection<string>();
             SelectionModes = new List<SelectionMode> { SelectionMode.Extended, SelectionMode.Multiple, SelectionMode.Single };
             Items = new ObservableCollection<int>();
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 20; i++)
             {
                 AddItem();
             }
