@@ -11,27 +11,26 @@
             <Pivot>
                 <PivotItem Header="Slider">
                     <local:SampleBroswerItem>
-                        <StackPanel>
-                            <!--<HyperlinkButton Content="Click It"
-                                             x:Name="ButtonElement"
-                                             NavigateUri="http://www.bing.com/" />-->
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
                             <Slider x:Name="SliderSource"
                                     Maximum="200" />
                             <Slider x:Name="SliderTarget"
                                     Maximum="100"
                                     Value="{Binding ElementName=SliderSource,Path=Value,Mode=OneWay}" />
-                            <!--<ListView ItemsSource="{x:Bind Actions}"
-                                      Margin="0,10,0,0"
-                                      MaxHeight="500"
-                                      Header="Actions">
-                                <ListView.ItemsPanel>
+                            <local:EventListView ItemsSource="{x:Bind Actions}"
+                                                 Header="Actions"
+                                                 Grid.Row="1">
+                                <local:EventListView.ItemsPanel>
                                     <ItemsPanelTemplate>
-                                        <ItemsStackPanel VerticalAlignment="Bottom"
-                                                         ItemsUpdatingScrollMode="KeepLastItemInView" />
+                                        <ItemsStackPanel ItemsUpdatingScrollMode="KeepLastItemInView" />
                                     </ItemsPanelTemplate>
-                                </ListView.ItemsPanel>
-                            </ListView>-->
-                        </StackPanel>
+                                </local:EventListView.ItemsPanel>
+                            </local:EventListView>
+                        </Grid>
                         <local:SampleBroswerItem.PropertiesContent>
                             <StackPanel>
                                 <!--<ToggleSwitch Header="IsEnabled"

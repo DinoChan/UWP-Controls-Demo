@@ -25,6 +25,7 @@ namespace UwpControlsDemo
         public SliderPage()
         {
             this.InitializeComponent();
+            
         }
     }
 }
