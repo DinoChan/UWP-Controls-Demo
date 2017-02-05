@@ -16,11 +16,8 @@
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition />
                             </Grid.RowDefinitions>
-                            <Slider x:Name="SliderSource"
+                            <Slider x:Name="Slider"
                                     Maximum="200" />
-                            <Slider x:Name="SliderTarget"
-                                    Maximum="100"
-                                    Value="{Binding ElementName=SliderSource,Path=Value,Mode=OneWay}" />
                             <local:EventListView ItemsSource="{x:Bind Actions}"
                                                  Header="Actions"
                                                  Grid.Row="1">
@@ -32,9 +29,9 @@
                             </local:EventListView>
                         </Grid>
                         <local:SampleBroswerItem.PropertiesContent>
-                            <StackPanel>
-                                <!--<ToggleSwitch Header="IsEnabled"
-                                              IsOn="{x:Bind ButtonElement.IsEnabled,Mode=TwoWay}" />
+                            <StackPanel><ToggleSwitch Header="IsEnabled"
+                                              IsOn="{x:Bind Slider.IsEnabled,Mode=TwoWay}" />
+                                <!--
                                 <ToggleSwitch Header="IsPointerOver"
                                               IsEnabled="False"
                                               IsOn="{Binding IsPointerOver,ElementName=ButtonElement}" />
