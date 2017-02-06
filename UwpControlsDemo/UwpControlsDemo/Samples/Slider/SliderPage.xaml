@@ -50,12 +50,12 @@
                                         Value="{x:Bind Slider.Minimum,Mode=TwoWay}"
                                         Header="Minimum" />
 
-                                <Slider StepFrequency="250"
+                                <Slider 
                                         Minimum="0.1"
                                         Maximum="100"
                                         Value="{x:Bind Slider.LargeChange,Mode=TwoWay}"
                                         Header="LargeChange" />
-                                <Slider StepFrequency="250"
+                                <Slider 
                                         Minimum="0.1"
                                         Maximum="100"
                                         Value="{x:Bind Slider.SmallChange,Mode=TwoWay}"
