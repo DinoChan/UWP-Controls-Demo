@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -25,7 +26,26 @@ namespace UwpControlsDemo
         public SliderPage()
         {
             this.InitializeComponent();
-            
+            Actions = new ObservableCollection<string>();
+            Orientations = new List<Orientation> { Orientation.Horizontal, Orientation.Vertical };
+            TickPlacements = new List<TickPlacement> { TickPlacement.None, TickPlacement.TopLeft, TickPlacement.BottomRight, TickPlacement.Outside, TickPlacement.Inline };
+        }
+
+        public ObservableCollection<string> Actions { get; }
+
+        public IEnumerable<Orientation> Orientations { get; }
+
+        public IEnumerable<TickPlacement> TickPlacements { get; }
+
+
+        private void AddAction(string action)
+        {
+            Actions.Add(action);
+        }
+
+        private void OnValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            AddAction("ValueChanged");
         }
     }
 }

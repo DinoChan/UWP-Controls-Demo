@@ -6,8 +6,11 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="Root">
-        <local:SampleBrowser Header="Slider" MyProperty="{Binding}"  MyName="{Binding ElementName=Root,Path=Height}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+          x:Name="Root">
+        <local:SampleBrowser Header="Slider"
+                             MyProperty="{Binding}"
+                             MyName="{Binding ElementName=Root,Path=Height}">
             <Pivot>
                 <PivotItem Header="Slider">
                     <local:SampleBroswerItem>
@@ -17,7 +20,10 @@
                                 <RowDefinition />
                             </Grid.RowDefinitions>
                             <Slider x:Name="Slider"
-                                    Maximum="200" />
+                                    Maximum="200"
+                                    Width="300"
+                                    Height="300"
+                                    ValueChanged="OnValueChanged" />
                             <local:EventListView ItemsSource="{x:Bind Actions}"
                                                  Header="Actions"
                                                  Grid.Row="1">
@@ -29,8 +35,52 @@
                             </local:EventListView>
                         </Grid>
                         <local:SampleBroswerItem.PropertiesContent>
-                            <StackPanel><ToggleSwitch Header="IsEnabled"
+                            <StackPanel>
+                                <ToggleSwitch Header="IsEnabled"
                                               IsOn="{x:Bind Slider.IsEnabled,Mode=TwoWay}" />
+                                <Slider StepFrequency="250"
+                                        Minimum="0"
+                                        Maximum="1000"
+                                        Value="{x:Bind Slider.Maximum,Mode=TwoWay}"
+                                        Header="Maximum" />
+
+                                <Slider StepFrequency="250"
+                                        Minimum="0"
+                                        Maximum="1000"
+                                        Value="{x:Bind Slider.Minimum,Mode=TwoWay}"
+                                        Header="Minimum" />
+
+                                <Slider StepFrequency="250"
+                                        Minimum="0.1"
+                                        Maximum="100"
+                                        Value="{x:Bind Slider.LargeChange,Mode=TwoWay}"
+                                        Header="LargeChange" />
+                                <Slider StepFrequency="250"
+                                        Minimum="0.1"
+                                        Maximum="100"
+                                        Value="{x:Bind Slider.SmallChange,Mode=TwoWay}"
+                                        Header="SmallChange" />
+                                <TextBlock Text="Orientation" />
+                                <ListBox ItemsSource="{x:Bind Orientations}"
+                                         SelectedItem="{Binding ElementName=Slider,Mode=TwoWay,Path=Orientation}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+
+                                <TextBlock Text="TickPlacement" />
+                                <ListBox ItemsSource="{x:Bind TickPlacements}"
+                                         SelectedItem="{Binding ElementName=Slider,Mode=TwoWay,Path=TickPlacement}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                                <TextBox Header="Header"
+                                         Text="{x:Bind Slider.Header,Mode=TwoWay}" />
                                 <!--
                                 <ToggleSwitch Header="IsPointerOver"
                                               IsEnabled="False"
