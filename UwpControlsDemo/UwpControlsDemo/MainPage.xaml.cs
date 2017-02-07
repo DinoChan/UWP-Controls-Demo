@@ -25,7 +25,6 @@ namespace UwpControlsDemo
         public MainPage()
         {
             this.InitializeComponent();
-            
         }
 
         public IEnumerable<PageItemGroup> Pages

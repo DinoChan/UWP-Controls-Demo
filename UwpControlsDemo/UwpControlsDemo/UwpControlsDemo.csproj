@@ -107,6 +107,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controls\SampleBrowser.cs" />
     <Compile Include="SampleDateSource.cs" />
+    <Compile Include="Samples\AutoSuggestBox\AutoSuggestBoxPage.xaml.cs">
+      <DependentUpon>AutoSuggestBoxPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Samples\Button\ButtonPage.xaml.cs">
       <DependentUpon>ButtonPage.xaml</DependentUpon>
     </Compile>
@@ -143,11 +146,23 @@
     <Compile Include="Samples\ListView\ListViewPage.xaml.cs">
       <DependentUpon>ListViewPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Samples\ProgressBar\ProgressBarPage.xaml.cs">
+      <DependentUpon>ProgressBarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\ProgressRing\ProgressRingPage.xaml.cs">
+      <DependentUpon>ProgressRingPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Samples\RadioButton\RadioButtonPage.xaml.cs">
       <DependentUpon>RadioButtonPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Samples\RepeatButton\RepeatButtonPage.xaml.cs">
       <DependentUpon>RepeatButtonPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\ScrollViewer\ScrollViewerPage.xaml.cs">
+      <DependentUpon>ScrollViewerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\SearchBox\SearchBoxPage.xaml.cs">
+      <DependentUpon>SearchBoxPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Samples\Slider\SliderPage.xaml.cs">
       <DependentUpon>SliderPage.xaml</DependentUpon>
@@ -189,6 +204,10 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Samples\AutoSuggestBox\AutoSuggestBoxPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Samples\Button\ButtonPage.xaml">
       <SubType>Designer</SubType>
@@ -238,11 +257,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Samples\ProgressBar\ProgressBarPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\ProgressRing\ProgressRingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Samples\RadioButton\RadioButtonPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Samples\RepeatButton\RepeatButtonPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\ScrollViewer\ScrollViewerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\SearchBox\SearchBoxPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
