@@ -25,6 +25,7 @@ namespace UwpControlsDemo
         public ProgressBarPage()
         {
             this.InitializeComponent();
+            
         }
     }
 }

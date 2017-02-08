@@ -25,6 +25,7 @@ namespace UwpControlsDemo
         public ProgressRingPage()
         {
             this.InitializeComponent();
+            
         }
     }
 }
