@@ -64,7 +64,7 @@
                 <StackPanel>
                     <TextBlock  TextWrapping="Wrap"
                                 Text="日历视图让用户查看可按月份、年份或十年期浏览的日历，并与之交互。 用户可选择单个日期或一组日期。 它没有选取器图面，并且日历始终可见。 " />
-                    <HyperlinkButton NavigateUri="进度控件将为用户提供关于正在处理运行时间较长的操作的反馈。 这意味着，在进度指示器可见，并且还可以根据所使用的指示器指示等待时长时，用户无法与该应用交互。"
+                    <HyperlinkButton NavigateUri="https://docs.microsoft.com/zh-cn/windows/uwp/controls-and-patterns/progress-controls"
                                      Content="进度控件 _ MSDN" />
                 </StackPanel>
             </local:SampleBrowser.Information>
