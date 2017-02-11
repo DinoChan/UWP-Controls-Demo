@@ -43,25 +43,21 @@ namespace UwpControlsDemo
             AddAction("ValueChanged");
         }
 
-        private void OnStartProgress(object sender, RoutedEventArgs e)
+        private async void OnStartProgress(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
             button.IsEnabled = false;
             var max = ProgressBar.Maximum;
             var min = ProgressBar.Minimum;
-            Task.Run(
-               async () =>
-               {
-                   var value = min;
-                   while (value <= max)
-                   {
-                       ProgressBar.Value = value;
-                       value += (max - min) / 50;
-                       value = Math.Min(value, max);
-                       await Task.Delay(TimeSpan.FromMilliseconds(200));
-                   }
-                   button.IsEnabled = true;
-               });
+            var value = min;
+            while (value <= max)
+            {
+                ProgressBar.Value = value;
+                value += (max - min) / 50;
+                value = Math.Min(value, max);
+                await Task.Delay(TimeSpan.FromMilliseconds(50));
+            }
+            button.IsEnabled = true;
         }
     }
 }

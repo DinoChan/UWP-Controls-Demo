@@ -17,9 +17,9 @@
                                 <RowDefinition />
                             </Grid.RowDefinitions>
                             <ProgressBar x:Name="ProgressBar"
-                                         Maximum="200"
                                          Width="300"
-                                         Height="300"
+                                         Minimum="0"
+                                         Maximum="100"
                                          ValueChanged="OnValueChanged" />
                             <local:EventListView ItemsSource="{x:Bind Actions}"
                                                  Header="Actions"
@@ -42,19 +42,11 @@
                                         Maximum="{x:Bind ProgressBar.Maximum,Mode=TwoWay}"
                                         Value="{x:Bind ProgressBar.Value,Mode=TwoWay}"
                                         Header="Value" />
-                                
-                                <Slider Minimum="0"
-                                        Maximum="1000"
-                                        Value="{x:Bind ProgressBar.Maximum,Mode=TwoWay}"
-                                        Header="Maximum" />
 
-                                <Slider Minimum="0"
-                                        Maximum="1000"
-                                        Value="{x:Bind ProgressBar.Minimum,Mode=TwoWay}"
-                                        Header="Minimum" />
+                               
                                 <Button Margin="0,8,0,0"
-                                        Content="Start Progress" 
-                                        Click="OnStartProgress"/>
+                                        Content="Start Progress"
+                                        Click="OnStartProgress" />
                             </StackPanel>
                         </local:SampleBroswerItem.PropertiesContent>
                     </local:SampleBroswerItem>
