@@ -1,13 +1,58 @@
-﻿<Page
-    x:Class="UwpControlsDemo.ScrollViewerPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:UwpControlsDemo"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+﻿<Page x:Class="UwpControlsDemo.ScrollViewerPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:UwpControlsDemo"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <local:SampleBrowser Header="CalendarView">
+            <Pivot>
+                <PivotItem Header="Slider">
+                    <local:SampleBroswerItem>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <ScrollViewer Height="400"
+                                          Width="400"
+                                          x:Name="Scroll">
 
+                            </ScrollViewer>
+                            <local:EventListView ItemsSource="{x:Bind Actions}"
+                                                 Header="Actions"
+                                                 Grid.Row="1">
+                                <local:EventListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <ItemsStackPanel ItemsUpdatingScrollMode="KeepLastItemInView" />
+                                    </ItemsPanelTemplate>
+                                </local:EventListView.ItemsPanel>
+                            </local:EventListView>
+                        </Grid>
+                        <local:SampleBroswerItem.PropertiesContent>
+                            <StackPanel>
+                                <ToggleSwitch Header="IsEnabled"
+                                              IsOn="{x:Bind Scroll.IsEnabled,Mode=TwoWay}" />
+
+                            </StackPanel>
+                        </local:SampleBroswerItem.PropertiesContent>
+                    </local:SampleBroswerItem>
+                </PivotItem>
+            </Pivot>
+            <local:SampleBrowser.Information>
+                <StackPanel>
+                    <TextBlock  TextWrapping="Wrap"
+                                Text="平移和滚动使用户可以获取超出屏幕边界的内容。
+
+滚动查看器控件包含的内容量以适合视区为准，并具有一个或两个滚动条。 触摸手势可用于平移和缩放（滚动条仅在操作期间淡入），指针可用于滚动。 轻拂手势可以利用惯性平移。
+
+注意Windows 具有两种滚动条可视化，它们基于用户的输入模式：使用触摸或游戏板时的滚动指示器；以及用于其他输入设备（包括鼠标、键盘和笔）的交互式滚动条。" />
+                    <HyperlinkButton NavigateUri="https://docs.microsoft.com/zh-cn/windows/uwp/controls-and-patterns/scroll-controls"
+                                     Content="滚动栏 _ MSDN" />
+                </StackPanel>
+            </local:SampleBrowser.Information>
+        </local:SampleBrowser>
     </Grid>
 </Page>

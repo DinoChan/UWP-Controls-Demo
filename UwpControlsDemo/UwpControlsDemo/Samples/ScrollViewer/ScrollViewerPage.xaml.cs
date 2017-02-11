@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -25,6 +26,26 @@ namespace UwpControlsDemo
         public ScrollViewerPage()
         {
             this.InitializeComponent();
+            Actions = new ObservableCollection<string>();
+        }
+
+        public ObservableCollection<string> Actions { get; }
+
+
+        private void OnCalendarViewDayItemChanging(CalendarView sender, CalendarViewDayItemChangingEventArgs e)
+        {
+            AddAction("CalendarViewDayItemChanging");
+        }
+
+        private void OnSelectedDateChanged(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs args)
+        {
+            AddAction("OnSelectedDateChanged");
+        }
+
+
+        private void AddAction(string action)
+        {
+            Actions.Add(action);
         }
     }
 }

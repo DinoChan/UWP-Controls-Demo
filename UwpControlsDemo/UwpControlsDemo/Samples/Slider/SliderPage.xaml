@@ -38,28 +38,29 @@
                             <StackPanel>
                                 <ToggleSwitch Header="IsEnabled"
                                               IsOn="{x:Bind Slider.IsEnabled,Mode=TwoWay}" />
-                                <Slider StepFrequency="250"
-                                        Minimum="0"
+                                <Slider Minimum="0"
                                         Maximum="1000"
                                         Value="{x:Bind Slider.Maximum,Mode=TwoWay}"
                                         Header="Maximum" />
 
-                                <Slider StepFrequency="250"
-                                        Minimum="0"
+                                <Slider Minimum="0"
                                         Maximum="1000"
                                         Value="{x:Bind Slider.Minimum,Mode=TwoWay}"
                                         Header="Minimum" />
 
-                                <Slider 
-                                        Minimum="0.1"
+                                <Slider Minimum="0.1"
                                         Maximum="100"
                                         Value="{x:Bind Slider.LargeChange,Mode=TwoWay}"
                                         Header="LargeChange" />
-                                <Slider 
-                                        Minimum="0.1"
+                                <Slider Minimum="0.1"
                                         Maximum="100"
                                         Value="{x:Bind Slider.SmallChange,Mode=TwoWay}"
                                         Header="SmallChange" />
+                                <Slider Minimum="0.1"
+                                        Maximum="100"
+                                        Value="{x:Bind Slider.StepFrequency,Mode=TwoWay}"
+                                        Header="StepFrequency" />
+
                                 <TextBlock Text="Orientation" />
                                 <ListBox ItemsSource="{x:Bind Orientations}"
                                          SelectedItem="{Binding ElementName=Slider,Mode=TwoWay,Path=Orientation}">

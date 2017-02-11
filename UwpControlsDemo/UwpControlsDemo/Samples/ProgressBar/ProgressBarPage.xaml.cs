@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -25,7 +27,41 @@ namespace UwpControlsDemo
         public ProgressBarPage()
         {
             this.InitializeComponent();
-            
+            Actions = new ObservableCollection<string>();
+        }
+
+        public ObservableCollection<string> Actions { get; }
+
+
+        private void AddAction(string action)
+        {
+            Actions.Add(action);
+        }
+
+        private void OnValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            AddAction("ValueChanged");
+        }
+
+        private void OnStartProgress(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            button.IsEnabled = false;
+            var max = ProgressBar.Maximum;
+            var min = ProgressBar.Minimum;
+            Task.Run(
+               async () =>
+               {
+                   var value = min;
+                   while (value <= max)
+                   {
+                       ProgressBar.Value = value;
+                       value += (max - min) / 50;
+                       value = Math.Min(value, max);
+                       await Task.Delay(TimeSpan.FromMilliseconds(200));
+                   }
+                   button.IsEnabled = true;
+               });
         }
     }
 }
