@@ -26,8 +26,8 @@
                                 <ToggleSwitch Header="IsEnabled"
                                               IsOn="{x:Bind Progress.IsEnabled,Mode=TwoWay}" />
 
-                                <ToggleSwitch Header="IsActive"
-                                              IsOn="{x:Bind Progress.IsActive,Mode=TwoWay}" />
+                                <!--<ToggleSwitch Header="IsActive"
+                                              IsOn="{x:Bind Progress.IsActive,Mode=TwoWay}" />-->
                             </StackPanel>
                         </local:SampleBroswerItem.PropertiesContent>
                     </local:SampleBroswerItem>
