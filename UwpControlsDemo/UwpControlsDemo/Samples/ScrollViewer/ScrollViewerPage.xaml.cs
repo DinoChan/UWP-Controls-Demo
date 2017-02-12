@@ -27,10 +27,11 @@ namespace UwpControlsDemo
         {
             this.InitializeComponent();
             Actions = new ObservableCollection<string>();
+            ZoomModes = new List<ZoomMode> { ZoomMode.Enabled, ZoomMode.Disabled };
         }
 
         public ObservableCollection<string> Actions { get; }
-
+        public IEnumerable<ZoomMode> ZoomModes { get; }
 
         private void OnCalendarViewDayItemChanging(CalendarView sender, CalendarViewDayItemChangingEventArgs e)
         {

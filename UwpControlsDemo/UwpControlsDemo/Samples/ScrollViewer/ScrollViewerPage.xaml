@@ -19,7 +19,8 @@
                             <ScrollViewer Height="400"
                                           Width="400"
                                           x:Name="Scroll">
-
+                                <Image Source="ms-appx:///Assets/image1.jpg"
+                                       Stretch="None" />
                             </ScrollViewer>
                             <local:EventListView ItemsSource="{x:Bind Actions}"
                                                  Header="Actions"
@@ -35,6 +36,16 @@
                             <StackPanel>
                                 <ToggleSwitch Header="IsEnabled"
                                               IsOn="{x:Bind Scroll.IsEnabled,Mode=TwoWay}" />
+
+                                <ComboBox ItemsSource="{x:Bind ZoomModes}"
+                                          Header="ZoomMode"
+                                          SelectedItem="{Binding ElementName=Scroll,Mode=TwoWay,Path=ZoomMode}">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
 
                             </StackPanel>
                         </local:SampleBroswerItem.PropertiesContent>
