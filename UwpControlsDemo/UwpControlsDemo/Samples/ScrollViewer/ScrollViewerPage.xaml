@@ -47,6 +47,46 @@
                                     </ComboBox.ItemTemplate>
                                 </ComboBox>
 
+                                <ComboBox ItemsSource="{x:Bind ScrollModes}"
+                                          Header="ZoomMode"
+                                          SelectedItem="{Binding ElementName=Scroll,Mode=TwoWay,Path=HorizontalScrollMode}">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+
+                                <ComboBox ItemsSource="{x:Bind ScrollModes}"
+                                          Header="ZoomMode"
+                                          SelectedItem="{Binding ElementName=Scroll,Mode=TwoWay,Path=VerticalScrollMode }">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+
+                                <ComboBox ItemsSource="{x:Bind ScrollBarVisibilities}"
+                                          Header="ZoomMode"
+                                          SelectedItem="{Binding ElementName=Scroll,Mode=TwoWay,Path=HorizontalScrollBarVisibility}">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+
+                                <ComboBox ItemsSource="{x:Bind ScrollBarVisibilities}"
+                                          Header="ZoomMode"
+                                          SelectedItem="{Binding ElementName=Scroll,Mode=TwoWay,Path=VerticalScrollBarVisibility}">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+
                             </StackPanel>
                         </local:SampleBroswerItem.PropertiesContent>
                     </local:SampleBroswerItem>

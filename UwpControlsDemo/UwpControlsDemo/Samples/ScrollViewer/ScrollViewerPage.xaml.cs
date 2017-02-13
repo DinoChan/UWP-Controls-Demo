@@ -28,10 +28,17 @@ namespace UwpControlsDemo
             this.InitializeComponent();
             Actions = new ObservableCollection<string>();
             ZoomModes = new List<ZoomMode> { ZoomMode.Enabled, ZoomMode.Disabled };
+            ScrollModes = new List<ScrollMode> { ScrollMode.Auto, ScrollMode.Disabled, ScrollMode.Enabled };
+            ScrollBarVisibilities = new List<ScrollBarVisibility> { ScrollBarVisibility.Auto, ScrollBarVisibility.Disabled, ScrollBarVisibility.Hidden, ScrollBarVisibility.Visible };
         }
 
         public ObservableCollection<string> Actions { get; }
         public IEnumerable<ZoomMode> ZoomModes { get; }
+
+        public IEnumerable<ScrollMode> ScrollModes { get; }
+
+        public IEnumerable<ScrollBarVisibility> ScrollBarVisibilities { get; }
+
 
         private void OnCalendarViewDayItemChanging(CalendarView sender, CalendarViewDayItemChangingEventArgs e)
         {
