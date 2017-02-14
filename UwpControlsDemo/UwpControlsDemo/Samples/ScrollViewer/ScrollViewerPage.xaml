@@ -48,7 +48,7 @@
                                 </ComboBox>
 
                                 <ComboBox ItemsSource="{x:Bind ScrollModes}"
-                                          Header="ZoomMode"
+                                          Header="HorizontalScrollMode"
                                           SelectedItem="{Binding ElementName=Scroll,Mode=TwoWay,Path=HorizontalScrollMode}">
                                     <ComboBox.ItemTemplate>
                                         <DataTemplate>
@@ -58,7 +58,7 @@
                                 </ComboBox>
 
                                 <ComboBox ItemsSource="{x:Bind ScrollModes}"
-                                          Header="ZoomMode"
+                                          Header="VerticalScrollMode"
                                           SelectedItem="{Binding ElementName=Scroll,Mode=TwoWay,Path=VerticalScrollMode }">
                                     <ComboBox.ItemTemplate>
                                         <DataTemplate>
@@ -68,7 +68,7 @@
                                 </ComboBox>
 
                                 <ComboBox ItemsSource="{x:Bind ScrollBarVisibilities}"
-                                          Header="ZoomMode"
+                                          Header="HorizontalScrollBarVisibility"
                                           SelectedItem="{Binding ElementName=Scroll,Mode=TwoWay,Path=HorizontalScrollBarVisibility}">
                                     <ComboBox.ItemTemplate>
                                         <DataTemplate>
@@ -78,7 +78,7 @@
                                 </ComboBox>
 
                                 <ComboBox ItemsSource="{x:Bind ScrollBarVisibilities}"
-                                          Header="ZoomMode"
+                                          Header="VerticalScrollBarVisibility"
                                           SelectedItem="{Binding ElementName=Scroll,Mode=TwoWay,Path=VerticalScrollBarVisibility}">
                                     <ComboBox.ItemTemplate>
                                         <DataTemplate>
