@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -25,6 +26,32 @@ namespace UwpControlsDemo
         public AutoSuggestBoxPage()
         {
             this.InitializeComponent();
+            Actions = new ObservableCollection<string>();
+        }
+
+
+        public ObservableCollection<string> Actions { get; }
+
+
+        private void AddAction(string action)
+        {
+            Actions.Add(action);
+        }
+
+        private void OnQuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+        {
+            AddAction("QuerySubmitted");
+        }
+
+
+        private void OnSuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
+        {
+            AddAction("SuggestionChosen");
+        }
+
+        private void OnTextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+        {
+            AddAction("TextChanged");
         }
     }
 }

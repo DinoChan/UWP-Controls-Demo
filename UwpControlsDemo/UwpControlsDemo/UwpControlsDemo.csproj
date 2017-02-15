@@ -161,9 +161,6 @@
     <Compile Include="Samples\ScrollViewer\ScrollViewerPage.xaml.cs">
       <DependentUpon>ScrollViewerPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Samples\SearchBox\SearchBoxPage.xaml.cs">
-      <DependentUpon>SearchBoxPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Samples\Slider\SliderPage.xaml.cs">
       <DependentUpon>SliderPage.xaml</DependentUpon>
     </Compile>
@@ -274,10 +271,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Samples\ScrollViewer\ScrollViewerPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Samples\SearchBox\SearchBoxPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

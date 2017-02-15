@@ -74,7 +74,6 @@ namespace UwpControlsDemo
             group.Items.Add(new PageItem { Title = "AutoSuggestBox", Type = typeof(AutoSuggestBoxPage) });
             group.Items.Add(new PageItem { Title = "PasswordBox " });
             group.Items.Add(new PageItem { Title = "RichEditBox " });
-            group.Items.Add(new PageItem { Title = "SearchBox", Type = typeof(SearchBoxPage) });
             group.Items.Add(new PageItem { Title = "TextBlock" });
             group.Items.Add(new PageItem { Title = "TextBox" });
             group.Items.Add(new PageItem { Title = "TextBlock" });
