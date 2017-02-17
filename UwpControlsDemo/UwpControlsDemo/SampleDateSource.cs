@@ -75,7 +75,7 @@ namespace UwpControlsDemo
             group.Items.Add(new PageItem { Title = "PasswordBox " });
             group.Items.Add(new PageItem { Title = "RichEditBox " });
             group.Items.Add(new PageItem { Title = "TextBlock" });
-            group.Items.Add(new PageItem { Title = "TextBox" });
+            group.Items.Add(new PageItem { Title = "TextBox", Type = typeof(TextBoxPage) });
             group.Items.Add(new PageItem { Title = "TextBlock" });
             pages.Add(group);
 
