@@ -13,7 +13,7 @@
                     <local:SampleBroswerItem>
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition />
+                                <RowDefinition Height="Auto"/>
                                 <RowDefinition />
                             </Grid.RowDefinitions>
                             <AutoSuggestBox x:Name="AutoSuggest"
