@@ -17,7 +17,7 @@
                                 <RowDefinition />
                             </Grid.RowDefinitions>
                             <TextBox x:Name="Text"
-                                     Header="Calendar"
+                                     Header="TextBox"
                                      Width="200"
                                      TextChanged="OnTextChanged"
                                      PlaceholderText="Input Text" />
@@ -35,8 +35,10 @@
                             <StackPanel>
                                 <ToggleSwitch Header="IsEnabled"
                                               IsOn="{x:Bind Text.IsEnabled,Mode=TwoWay}" />
-
-
+                                <ToggleSwitch Header="IsReadOnly"
+                                              IsOn="{x:Bind Text.IsReadOnly,Mode=TwoWay}" />
+                                <ToggleSwitch Header="AcceptsReturn"
+                                              IsOn="{x:Bind Text.AcceptsReturn,Mode=TwoWay}" />
                                 <TextBox Header="Header"
                                          Text="{x:Bind Text.Header,Mode=TwoWay}" />
                                 <TextBox Header="PlaceholderText"
@@ -49,9 +51,11 @@
             <local:SampleBrowser.Information>
                 <StackPanel>
                     <TextBlock  TextWrapping="Wrap"
-                                Text="日历日期选取器是一个下拉式控件，该控件已针对从日历视图中选取某个日期进行了优化，尤其是能够显示诸如星期几或丰富的日历信息等上下文信息。 你可以修改日历以提供其他上下文或限制可用日期。" />
-                    <HyperlinkButton NavigateUri="https://msdn.microsoft.com/zh-cn/windows/uwp/controls-and-patterns/calendar-date-picker"
-                                     Content="日历日期选取器 _ MSDN" />
+                                Text="TextBox 控件可使用户在应用中键入文本。 它通常用于捕获单行文本，但可配置为捕获多行文本。 文本以简单、统一、纯文本的格式显示在屏幕上。
+TextBox 具有大量可简化文本输入的功能。 它附带熟悉的内置上下文菜单，并提供对复制和粘贴文本的支持。 '
+                                清除所有'按钮使用户可以快速删除所输入的所有文本。 它还内置了拼写检查功能，并且在默认情况下处于启用状态。" />
+                    <HyperlinkButton NavigateUri="https://docs.microsoft.com/zh-cn/windows/uwp/controls-and-patterns/text-box"
+                                     Content="文本框 _ MSDN" />
                 </StackPanel>
             </local:SampleBrowser.Information>
         </local:SampleBrowser>

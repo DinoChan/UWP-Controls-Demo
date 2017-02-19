@@ -20,6 +20,8 @@
                                             QueryIcon="Find"
                                             ItemsSource="{x:Bind ItemsSource}"
                                             QuerySubmitted="OnQuerySubmitted"
+                                            Header="AutoSuggestBox"
+                                            PlaceholderText="Type a number"
                                             SuggestionChosen="OnSuggestionChosen"
                                             TextChanged="OnTextChanged" />
 
