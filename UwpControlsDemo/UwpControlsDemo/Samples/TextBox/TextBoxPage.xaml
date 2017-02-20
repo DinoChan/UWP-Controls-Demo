@@ -18,7 +18,7 @@
                             </Grid.RowDefinitions>
                             <TextBox x:Name="Text"
                                      Header="TextBox"
-                                     Width="200"
+                                     Width="400"
                                      TextChanged="OnTextChanged"
                                      PlaceholderText="Input Text" />
                             <local:EventListView ItemsSource="{x:Bind Actions}"
@@ -43,6 +43,62 @@
                                          Text="{x:Bind Text.Header,Mode=TwoWay}" />
                                 <TextBox Header="PlaceholderText"
                                          Text="{x:Bind Text.PlaceholderText,Mode=TwoWay}" />
+
+                                <Slider Header="Height"
+                                        Value="{x:Bind Text.Height}"
+                                        Maximum="500"
+                                        Minimum="{ThemeResource TextControlThemeMinHeight}" />
+                                <ComboBox ItemsSource="{x:Bind TextWrappings}"
+                                          Header="TextWrapping"
+                                          SelectedItem="{Binding ElementName=Text,Mode=TwoWay,Path=TextWrapping}">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+
+
+
+                                <ComboBox ItemsSource="{x:Bind ScrollModes}"
+                                          Header="ScrollViewer.HorizontalScrollMode"
+                                          SelectedItem="{Binding ElementName=Text,Mode=TwoWay,Path=(ScrollViewer.HorizontalScrollMode)}">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+
+                                <ComboBox ItemsSource="{x:Bind ScrollModes}"
+                                          Header="ScrollViewer.VerticalScrollMode"
+                                          SelectedItem="{Binding ElementName=Text,Mode=TwoWay,Path=(ScrollViewer.VerticalScrollMode)}">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+
+                                <ComboBox ItemsSource="{x:Bind ScrollBarVisibilities}"
+                                          Header="ScrollViewer.HorizontalScrollBarVisibility"
+                                          SelectedItem="{Binding ElementName=Text,Mode=TwoWay,Path=(ScrollViewer.HorizontalScrollBarVisibility)}">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+
+                                <ComboBox ItemsSource="{x:Bind ScrollBarVisibilities}"
+                                          Header="ScrollViewer.VerticalScrollBarVisibility"
+                                          SelectedItem="{Binding ElementName=Text,Mode=TwoWay,Path=(ScrollViewer.VerticalScrollBarVisibility)}">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
                             </StackPanel>
                         </local:SampleBroswerItem.PropertiesContent>
                     </local:SampleBroswerItem>

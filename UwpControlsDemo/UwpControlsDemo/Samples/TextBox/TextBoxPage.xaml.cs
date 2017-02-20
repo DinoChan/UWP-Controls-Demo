@@ -27,12 +27,21 @@ namespace UwpControlsDemo
         {
             this.InitializeComponent();
             Actions = new ObservableCollection<string>();
+            ScrollModes = new List<ScrollMode> { ScrollMode.Auto, ScrollMode.Disabled, ScrollMode.Enabled };
+            ScrollBarVisibilities = new List<ScrollBarVisibility> { ScrollBarVisibility.Auto, ScrollBarVisibility.Disabled, ScrollBarVisibility.Hidden, ScrollBarVisibility.Visible };
+            TextWrappings = new List<TextWrapping> { TextWrapping.NoWrap, TextWrapping.Wrap, TextWrapping.WrapWholeWords };
         }
 
         public ObservableCollection<string> Actions { get; }
 
+        public IEnumerable<ScrollMode> ScrollModes { get; }
 
-       
+        public IEnumerable<ScrollBarVisibility> ScrollBarVisibilities { get; }
+
+        public IEnumerable<TextWrapping> TextWrappings { get; }
+
+
+
         private void AddAction(string action)
         {
             Actions.Add(action);
