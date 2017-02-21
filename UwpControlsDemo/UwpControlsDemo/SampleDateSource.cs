@@ -76,7 +76,7 @@ namespace UwpControlsDemo
             group.Items.Add(new PageItem { Title = "RichEditBox " });
             group.Items.Add(new PageItem { Title = "TextBlock" });
             group.Items.Add(new PageItem { Title = "TextBox", Type = typeof(TextBoxPage) });
-            group.Items.Add(new PageItem { Title = "TextBlock" });
+            group.Items.Add(new PageItem { Title = "TextBlock", Type = typeof(TextBlockPage) });
             pages.Add(group);
 
             group = new PageItemGroup("Selection controls");
