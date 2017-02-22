@@ -7,7 +7,7 @@
       mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <local:SampleBrowser Header="CalendarDatePicker">
+        <local:SampleBrowser Header="TextBox">
             <Pivot>
                 <PivotItem Header="CalendarDatePicker">
                     <local:SampleBroswerItem>

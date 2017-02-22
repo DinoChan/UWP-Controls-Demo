@@ -1,13 +1,107 @@
-﻿<Page
-    x:Class="UwpControlsDemo.TextBlockPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:UwpControlsDemo"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+﻿<Page x:Class="UwpControlsDemo.TextBlockPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:UwpControlsDemo"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <local:SampleBrowser Header="TextBlock">
+            <Pivot>
+                <PivotItem Header="CalendarDatePicker">
+                    <local:SampleBroswerItem>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <TextBlock x:Name="Text"
+                                       Width="400"
+                                       Height="25"
+                                       Text="Input some text" />
+                            
+                        </Grid>
+                        <local:SampleBroswerItem.PropertiesContent>
+                            <StackPanel>
+                                <ToggleSwitch Header="IsTextSelectionEnabled"
+                                              IsOn="{x:Bind Text.IsTextSelectionEnabled,Mode=TwoWay}" />
 
+
+                                <Slider Header="Height"
+                                        Value="{x:Bind Text.Height}"
+                                        Maximum="500"
+                                        Minimum="{ThemeResource TextControlThemeMinHeight}" />
+
+                                <Slider Header="Width"
+                                        Value="{x:Bind Text.Width}"
+                                        Maximum="500"
+                                        Minimum="{ThemeResource TextControlThemeMinHeight}" />
+                                <ComboBox ItemsSource="{x:Bind TextWrappings}"
+                                          Header="TextWrapping"
+                                          SelectedItem="{Binding ElementName=Text,Mode=TwoWay,Path=TextWrapping}">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+
+                                <ComboBox ItemsSource="{x:Bind TextTrimmings}"
+                                          Header="TextTrimming"
+                                          SelectedItem="{Binding ElementName=Text,Mode=TwoWay,Path=TextTrimming}">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+
+
+
+
+                                <ComboBox ItemsSource="{x:Bind TextAlignments}"
+                                          Header="TextAlignment"
+                                          SelectedItem="{Binding ElementName=Text,Mode=TwoWay,Path=TextAlignment}">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+                                <ComboBox ItemsSource="{x:Bind FontWeights}"
+                                          Header="FontWeight"
+                                          SelectedItem="{Binding ElementName=Text,Mode=TwoWay,Path=FontWeight}">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+                                <ComboBox ItemsSource="{x:Bind FontStyles}"
+                                          Header="FontStyle"
+                                          SelectedItem="{Binding ElementName=Text,Mode=TwoWay,Path=FontStyle}">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+
+
+                            </StackPanel>
+                        </local:SampleBroswerItem.PropertiesContent>
+                    </local:SampleBroswerItem>
+                </PivotItem>
+            </Pivot>
+            <local:SampleBrowser.Information>
+                <StackPanel>
+                    <TextBlock  TextWrapping="Wrap"
+                                Text="文本块是应用中用于显示只读文本的主要控件。 你可以使用它来显示单行或多行文本、内联超链接以及粗体、斜体或带下划线格式的文本。" />
+                    <HyperlinkButton NavigateUri="https://docs.microsoft.com/zh-cn/windows/uwp/controls-and-patterns/text-block"
+                                     Content="文本块 _ MSDN" />
+                </StackPanel>
+            </local:SampleBrowser.Information>
+        </local:SampleBrowser>
     </Grid>
 </Page>
