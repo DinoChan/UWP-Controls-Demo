@@ -1,0 +1,108 @@
+﻿<Page x:Class="UwpControlsDemo.RectanglePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:UwpControlsDemo"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <local:SampleBrowser Header="Rectangle">
+            <Pivot>
+                <PivotItem Header="Rectangle">
+                    <local:SampleBroswerItem>
+                        <Grid>
+                            <Rectangle x:Name="Rectangle"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Fill="Yellow"
+                                       Stroke="Blue"
+                                       StrokeThickness="1"
+                                       Height="100"
+                                       Width="100" />
+                            
+                        </Grid>
+                        <local:SampleBroswerItem.PropertiesContent>
+                            <StackPanel>
+                                <Slider Header="Height"
+                                        Value="{x:Bind Rectangle.Height,Mode=TwoWay}"
+                                        Maximum="500"
+                                        Minimum="10" />
+                                <Slider Header="Width"
+                                        Value="{x:Bind Rectangle.Width,Mode=TwoWay}"
+                                        Maximum="500"
+                                        Minimum="10" />
+                                <Slider Header="StrokeThinckness"
+                                        Value="{x:Bind Rectangle.StrokeThickness,Mode=TwoWay}"
+                                        Maximum="20"
+                                        Minimum="1" />
+                                <StackPanel Background="LightGray">
+                                    <ToggleSwitch Header="Enabled StrokeDashArray"
+                                                  x:Name="EnabledDashArrayElement"
+                                                  IsOn="False"
+                                                  Toggled="OnEnabledDashArrayToggled" />
+                                    <Slider Header="StrokeDashArray[0]"
+                                            x:Name="SliderDashArray0"
+                                            Minimum="1"
+                                            Maximum="10" />
+
+                                    <Slider Header="StrokeDashArray[1]"
+                                            x:Name="SliderDashArray1"
+                                            Minimum="1"
+                                            Maximum="10" />
+                                </StackPanel>
+
+                                <Slider Header="StrokeDashOffset]"
+                                        Value="{x:Bind Rectangle.StrokeDashOffset,Mode=TwoWay}"
+                                        Minimum="1"
+                                        Maximum="100" />
+                                <TextBlock Text="StrokeDashCap" />
+                                <ListBox ItemsSource="{x:Bind PenLineCaps}"
+                                         SelectedItem="{Binding ElementName=Rectangle,Mode=TwoWay,Path=StrokeDashCap}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+
+                                <Slider Header="StrokeMiterLimit"
+                                        Value="{x:Bind Rectangle.StrokeMiterLimit,Mode=TwoWay}"
+                                        Minimum="1"
+                                        Maximum="10" />
+
+                                <TextBlock Text="StrokeLineJoin" />
+                                <ListBox ItemsSource="{x:Bind PenLineJoins}"
+                                         SelectedItem="{Binding ElementName=Rectangle,Mode=TwoWay,Path=StrokeLineJoin}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                                <Slider Header="RadiusX"
+                                        Value="{x:Bind Rectangle.RadiusX,Mode=TwoWay}"
+                                        Minimum="0"
+                                        Maximum="100" />
+
+                                <Slider Header="RadiusY"
+                                        Value="{x:Bind Rectangle.RadiusY,Mode=TwoWay}"
+                                        Minimum="0"
+                                        Maximum="100" />
+
+                            </StackPanel>
+                        </local:SampleBroswerItem.PropertiesContent>
+                    </local:SampleBroswerItem>
+                </PivotItem>
+            </Pivot>
+            <local:SampleBrowser.Information>
+                <StackPanel>
+                    <TextBlock  TextWrapping="Wrap"
+                                Text="Rectangle 形状有四个边而且相对的两个边相等。 若要创建基本的 Rectangle，请指定 Width、Height 和 Fill。" />
+                    <HyperlinkButton NavigateUri="https://docs.microsoft.com/zh-cn/windows/uwp/graphics/drawing-shapes"
+                                     Content="绘制图形 - UWP app developer _ Microsoft Docs.htm" />
+                </StackPanel>
+            </local:SampleBrowser.Information>
+        </local:SampleBrowser>
+    </Grid>
+</Page>

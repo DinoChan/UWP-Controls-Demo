@@ -131,6 +131,9 @@
     <Compile Include="Samples\DatePicker\DatePickerPage.xaml.cs">
       <DependentUpon>DatePickerPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Samples\Ellipse\EllipsePage.xaml.cs">
+      <DependentUpon>EllipsePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Samples\GridView\GridViewPage.xaml.cs">
       <DependentUpon>GridViewPage.xaml</DependentUpon>
     </Compile>
@@ -139,6 +142,9 @@
     </Compile>
     <Compile Include="Samples\Image\ImagePage.xaml.cs">
       <DependentUpon>ImagePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Line\LinePage.xaml.cs">
+      <DependentUpon>LinePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Samples\ListBox\ListBoxPage.xaml.cs">
       <DependentUpon>ListBoxPage.xaml</DependentUpon>
@@ -154,6 +160,9 @@
     </Compile>
     <Compile Include="Samples\RadioButton\RadioButtonPage.xaml.cs">
       <DependentUpon>RadioButtonPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Rectangle\RectanglePage.xaml.cs">
+      <DependentUpon>RectanglePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Samples\RepeatButton\RepeatButtonPage.xaml.cs">
       <DependentUpon>RepeatButtonPage.xaml</DependentUpon>
@@ -240,6 +249,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Samples\Ellipse\EllipsePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Samples\GridView\GridViewPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -249,6 +262,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Samples\Image\ImagePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\Line\LinePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -269,6 +286,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Samples\RadioButton\RadioButtonPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\Rectangle\RectanglePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

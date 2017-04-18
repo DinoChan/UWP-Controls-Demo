@@ -38,9 +38,10 @@ namespace UwpControlsDemo
             group.Items.Add(new PageItem { Title = "Image", Type = typeof(ImagePage) });
             pages.Add(group);
             group = new PageItemGroup("Graphics");
-            group.Items.Add(new PageItem { Title = "Ellipse" });
+            group.Items.Add(new PageItem { Title = "Ellipse", Type = typeof(EllipsePage) });
             group.Items.Add(new PageItem { Title = "Path" });
-            group.Items.Add(new PageItem { Title = "Rectangle" });
+            group.Items.Add(new PageItem { Title = "Rectangle", Type = typeof(RectanglePage) });
+            group.Items.Add(new PageItem { Title = "Line", Type = typeof(LinePage) });
             pages.Add(group);
 
             group = new PageItemGroup("Layout controls");

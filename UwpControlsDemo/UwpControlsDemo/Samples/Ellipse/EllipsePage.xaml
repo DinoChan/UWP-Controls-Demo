@@ -1,0 +1,98 @@
+﻿<Page x:Class="UwpControlsDemo.EllipsePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:UwpControlsDemo"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <local:SampleBrowser Header="Rectangle">
+            <Pivot>
+                <PivotItem Header="Rectangle">
+                    <local:SampleBroswerItem>
+                        <Grid>
+                            <Grid BorderThickness="1"
+                                  BorderBrush="DarkGray"
+                                  Background="LightGray"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  x:Name="OuterPanel"
+                                  Height="100"
+                                  Width="100">
+                                <Ellipse x:Name="Ellipse"
+                                         Fill="Yellow"
+                                         Stroke="Blue"
+                                         StrokeThickness="1" />
+                            </Grid>
+                        </Grid>
+                        <local:SampleBroswerItem.PropertiesContent>
+                            <StackPanel>
+                                <Slider Header="OuterPanel Panel Height"
+                                        Value="{x:Bind OuterPanel.Height,Mode=TwoWay}"
+                                        Maximum="500"
+                                        Minimum="10" />
+                                <Slider Header="Outer Panel Width"
+                                        Value="{x:Bind OuterPanel.Width,Mode=TwoWay}"
+                                        Maximum="500"
+                                        Minimum="10" />
+                                <Slider Header="StrokeThinckness"
+                                        Value="{x:Bind Ellipse.StrokeThickness,Mode=TwoWay}"
+                                        Maximum="20"
+                                        Minimum="1" />
+                                <StackPanel Background="LightGray">
+                                    <ToggleSwitch Header="Enabled StrokeDashArray"
+                                                  x:Name="EnabledDashArrayElement"
+                                                  IsOn="False"
+                                                  Toggled="OnEnabledDashArrayToggled" />
+                                    <Slider Header="StrokeDashArray[0]"
+                                            x:Name="SliderDashArray0"
+                                            Minimum="1"
+                                            Maximum="10" />
+
+                                    <Slider Header="StrokeDashArray[1]"
+                                            x:Name="SliderDashArray1"
+                                            Minimum="1"
+                                            Maximum="10" />
+                                </StackPanel>
+
+                                <Slider Header="StrokeDashOffset]"
+                                        Value="{x:Bind Ellipse.StrokeDashOffset,Mode=TwoWay}"
+                                        Minimum="1"
+                                        Maximum="100" />
+                                <TextBlock Text="StrokeDashCap" />
+                                <ListBox ItemsSource="{x:Bind PenLineCaps}"
+                                         SelectedItem="{Binding ElementName=Ellipse,Mode=TwoWay,Path=StrokeDashCap}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+
+                                <TextBlock Text="Stretch" />
+                                <ListBox ItemsSource="{x:Bind Stretches}"
+                                         SelectedItem="{Binding ElementName=Ellipse,Mode=TwoWay,Path=Stretch}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+
+                            </StackPanel>
+                        </local:SampleBroswerItem.PropertiesContent>
+                    </local:SampleBroswerItem>
+                </PivotItem>
+            </Pivot>
+            <local:SampleBrowser.Information>
+                <StackPanel>
+                    <TextBlock  TextWrapping="Wrap"
+                                Text="Ellipse 是具有弯曲外围的形状。 若要创建基本的 Ellipse，请为 Fill 指定 Width, Height 和 Brush。" />
+                    <HyperlinkButton NavigateUri="https://docs.microsoft.com/zh-cn/windows/uwp/graphics/drawing-shapes#a-nameellipseaellipse"
+                                     Content="绘制图形 - UWP app developer _ Microsoft Docs.htm" />
+                </StackPanel>
+            </local:SampleBrowser.Information>
+        </local:SampleBrowser>
+    </Grid>
+</Page>
