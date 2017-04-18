@@ -1,4 +1,4 @@
-﻿<Page x:Class="UwpControlsDemo.LinePage"
+﻿<Page x:Class="UwpControlsDemo.PolygonPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:local="using:UwpControlsDemo"
@@ -7,9 +7,9 @@
       mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <local:SampleBrowser Header="Line">
+        <local:SampleBrowser Header="Polygon">
             <Pivot>
-                <PivotItem Header="Line">
+                <PivotItem Header="Polygon">
                     <local:SampleBroswerItem>
                         <Grid>
                             <Grid BorderThickness="1"
@@ -20,36 +20,19 @@
                                   x:Name="OuterPanel"
                                   Height="300"
                                   Width="300">
-                                <Line x:Name="Line"
-                                      Fill="Yellow"
-                                      Stroke="Blue"
-                                      StrokeThickness="1" />
+                                <Polygon Points="15,130 68,0 110,130 0,55 135,55"
+                                         Fill="Red"
+                                         Stroke="Blue"
+                                         StrokeThickness="1"
+                                         x:Name="Polygon" />
                             </Grid>
                         </Grid>
                         <local:SampleBroswerItem.PropertiesContent>
                             <StackPanel>
-                                <Slider Header="X1"
-                                        Value="{x:Bind Line.X1,Mode=TwoWay}"
-                                        Maximum="500"
-                                        Minimum="0" />
 
-                                <Slider Header="Y1"
-                                        Value="{x:Bind Line.Y1,Mode=TwoWay}"
-                                        Maximum="500"
-                                        Minimum="0" />
-
-                                <Slider Header="X2"
-                                        Value="{x:Bind Line.X2,Mode=TwoWay}"
-                                        Maximum="500"
-                                        Minimum="0" />
-
-                                <Slider Header="Y2"
-                                        Value="{x:Bind Line.Y2,Mode=TwoWay}"
-                                        Maximum="500"
-                                        Minimum="0" />
 
                                 <Slider Header="StrokeThinckness"
-                                        Value="{x:Bind Line.StrokeThickness,Mode=TwoWay}"
+                                        Value="{x:Bind Polygon.StrokeThickness,Mode=TwoWay}"
                                         Maximum="20"
                                         Minimum="1" />
                                 <StackPanel Background="LightGray">
@@ -69,12 +52,12 @@
                                 </StackPanel>
 
                                 <Slider Header="StrokeDashOffset]"
-                                        Value="{x:Bind Line.StrokeDashOffset,Mode=TwoWay}"
+                                        Value="{x:Bind Polygon.StrokeDashOffset,Mode=TwoWay}"
                                         Minimum="1"
                                         Maximum="100" />
                                 <TextBlock Text="StrokeDashCap" />
                                 <ListBox ItemsSource="{x:Bind PenLineCaps}"
-                                         SelectedItem="{Binding ElementName=Line,Mode=TwoWay,Path=StrokeDashCap}">
+                                         SelectedItem="{Binding ElementName=Polygon,Mode=TwoWay,Path=StrokeDashCap}">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
                                             <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
@@ -84,7 +67,7 @@
 
                                 <TextBlock Text="StrokeStartLineCap" />
                                 <ListBox ItemsSource="{x:Bind PenLineCaps}"
-                                         SelectedItem="{Binding ElementName=Line,Mode=TwoWay,Path=StrokeStartLineCap}">
+                                         SelectedItem="{Binding ElementName=Polygon,Mode=TwoWay,Path=StrokeStartLineCap}">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
                                             <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
@@ -94,7 +77,22 @@
 
                                 <TextBlock Text="StrokeEndLineCap" />
                                 <ListBox ItemsSource="{x:Bind PenLineCaps}"
-                                         SelectedItem="{Binding ElementName=Line,Mode=TwoWay,Path=StrokeEndLineCap}">
+                                         SelectedItem="{Binding ElementName=Polygon,Mode=TwoWay,Path=StrokeEndLineCap}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+
+                                <Slider Header="StrokeMiterLimit"
+                                        Value="{x:Bind Polygon.StrokeMiterLimit,Mode=TwoWay}"
+                                        Minimum="1"
+                                        Maximum="10" />
+
+                                <TextBlock Text="StrokeLineJoin" />
+                                <ListBox ItemsSource="{x:Bind PenLineJoins}"
+                                         SelectedItem="{Binding ElementName=Polygon,Mode=TwoWay,Path=StrokeLineJoin}">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
                                             <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
@@ -104,7 +102,7 @@
 
                                 <TextBlock Text="Stretch" />
                                 <ListBox ItemsSource="{x:Bind Stretches}"
-                                         SelectedItem="{Binding ElementName=Line,Mode=TwoWay,Path=Stretch}">
+                                         SelectedItem="{Binding ElementName=Polygon,Mode=TwoWay,Path=Stretch}">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
                                             <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
@@ -112,6 +110,15 @@
                                     </ListBox.ItemTemplate>
                                 </ListBox>
 
+                                <TextBlock Text="FillRule" />
+                                <ListBox ItemsSource="{x:Bind FillRules}"
+                                         SelectedItem="{Binding ElementName=Polygon,Mode=TwoWay,Path=FillRule}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Converter={StaticResource StringFormatConverter}}" />
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
                             </StackPanel>
                         </local:SampleBroswerItem.PropertiesContent>
                     </local:SampleBroswerItem>
@@ -120,8 +127,8 @@
             <local:SampleBrowser.Information>
                 <StackPanel>
                     <TextBlock  TextWrapping="Wrap"
-                                Text="Line 只是一条在坐标空间中的两个点之间绘制的直线。 Line 忽略为 Fill 提供的任何值，因为它没有内部空间。 对于 Line，请确保为 Stroke 和 StrokeThickness 属性指定值，否则 Line 将不呈现。" />
-                    <HyperlinkButton NavigateUri="https://docs.microsoft.com/zh-cn/windows/uwp/graphics/drawing-shapes#a-namelinealine"
+                                Text="Polygon 是通过任意数量的点来定义边的形状。 边通过用直线将点一个一个连接起来（最后一个点与第一个点相连）而创建。 Points 属性定义组成边的点集。 在 XAML 中，使用逗号分隔的列表定义点。 在代码隐藏文件中，使用 PointCollection 定义各个点，并将每个点作为一个 Point 值添加到集合中。" />
+                    <HyperlinkButton NavigateUri="https://docs.microsoft.com/zh-cn/windows/uwp/graphics/drawing-shapes#a-namepolygonapolygon"
                                      Content="绘制图形 - UWP app developer _ Microsoft Docs.htm" />
                 </StackPanel>
             </local:SampleBrowser.Information>

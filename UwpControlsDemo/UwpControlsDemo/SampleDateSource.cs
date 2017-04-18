@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
 
 namespace UwpControlsDemo
 {
@@ -32,16 +33,19 @@ namespace UwpControlsDemo
             group.Items.Add(new PageItem { Title = "Menu flyout" });
             group.Items.Add(new PageItem { Title = "Popup menu" });
             group.Items.Add(new PageItem { Title = "Tooltip" });
-
             pages.Add(group);
+
             group = new PageItemGroup("Images");
             group.Items.Add(new PageItem { Title = "Image", Type = typeof(ImagePage) });
             pages.Add(group);
+
             group = new PageItemGroup("Graphics");
             group.Items.Add(new PageItem { Title = "Ellipse", Type = typeof(EllipsePage) });
-            group.Items.Add(new PageItem { Title = "Path" });
+            group.Items.Add(new PageItem { Title = "Path",Type=typeof(PathPage ) });
             group.Items.Add(new PageItem { Title = "Rectangle", Type = typeof(RectanglePage) });
             group.Items.Add(new PageItem { Title = "Line", Type = typeof(LinePage) });
+            group.Items.Add(new PageItem { Title = "Polyline", Type = typeof(PolylinePage) });
+            group.Items.Add(new PageItem { Title = "Polygon", Type = typeof(PolygonPage) });
             pages.Add(group);
 
             group = new PageItemGroup("Layout controls");
@@ -87,9 +91,6 @@ namespace UwpControlsDemo
             group.Items.Add(new PageItem { Title = "DatePicker", Type = typeof(DatePickerPage) });
             group.Items.Add(new PageItem { Title = "CalendarDatePicker", Type = typeof(CalendarDatePickerPage) });
             group.Items.Add(new PageItem { Title = "CalendarView", Type = typeof(CalendarViewPage) });
-            group.Items.Add(new PageItem { Title = "ListBox", Type = typeof(ListBoxPage) });
-            group.Items.Add(new PageItem { Title = "ListView", Type = typeof(ListViewPage) });
-            group.Items.Add(new PageItem { Title = "GridView", Type = typeof(GridViewPage) });
             group.Items.Add(new PageItem { Title = "RadioButton", Type = typeof(RadioButtonPage) });
             group.Items.Add(new PageItem { Title = "Slider", Type = typeof(SliderPage) });
             group.Items.Add(new PageItem { Title = "TimePicker", Type = typeof(TimePickerPage) });

@@ -152,6 +152,15 @@
     <Compile Include="Samples\ListView\ListViewPage.xaml.cs">
       <DependentUpon>ListViewPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Samples\Path\PathPage.xaml.cs">
+      <DependentUpon>PathPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Polygon\PolygonPage.xaml.cs">
+      <DependentUpon>PolygonPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Polyline\PolylinePage.xaml.cs">
+      <DependentUpon>PolylinePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Samples\ProgressBar\ProgressBarPage.xaml.cs">
       <DependentUpon>ProgressBarPage.xaml</DependentUpon>
     </Compile>
@@ -274,6 +283,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Samples\ListView\ListViewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\Path\PathPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\Polygon\PolygonPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\Polyline\PolylinePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

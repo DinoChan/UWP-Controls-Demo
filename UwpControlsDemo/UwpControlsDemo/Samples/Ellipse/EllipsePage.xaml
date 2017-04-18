@@ -7,9 +7,9 @@
       mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <local:SampleBrowser Header="Rectangle">
+        <local:SampleBrowser Header="Ellipse">
             <Pivot>
-                <PivotItem Header="Rectangle">
+                <PivotItem Header="Ellipse">
                     <local:SampleBroswerItem>
                         <Grid>
                             <Grid BorderThickness="1"
