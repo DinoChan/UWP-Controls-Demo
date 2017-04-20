@@ -22,10 +22,10 @@ namespace UwpControlsDemo
             group.Items.Add(new PageItem { Title = "Flip view" });
             group.Items.Add(new PageItem { Title = "Grid view", Type = typeof(GridViewPage) });
             group.Items.Add(new PageItem { Title = "Hub" });
-            group.Items.Add(new PageItem { Title = "Items control" });
+            //group.Items.Add(new PageItem { Title = "Items control" });
             group.Items.Add(new PageItem { Title = "List view", Type = typeof(ListViewPage) });
             group.Items.Add(new PageItem { Title = "List box", Type = typeof(ListBoxPage) });
-            group.Items.Add(new PageItem { Title = "Semantic zoom" });
+            //group.Items.Add(new PageItem { Title = "Semantic zoom" });
             pages.Add(group);
             group = new PageItemGroup("Flyouts");
             group.Items.Add(new PageItem { Title = "Context menu" });
@@ -49,14 +49,13 @@ namespace UwpControlsDemo
             pages.Add(group);
 
             group = new PageItemGroup("Layout controls");
-            group.Items.Add(new PageItem { Title = "Border" });
-            group.Items.Add(new PageItem { Title = "Canvas" });
+            //group.Items.Add(new PageItem { Title = "Border" });
+            //group.Items.Add(new PageItem { Title = "Canvas" });
             group.Items.Add(new PageItem { Title = "Flex box" });
-            group.Items.Add(new PageItem { Title = "Canvas" });
             group.Items.Add(new PageItem { Title = "Scroll viewer", Type = typeof(ScrollViewerPage) });
-            group.Items.Add(new PageItem { Title = " Zooming scroll viewer" });
-            group.Items.Add(new PageItem { Title = "StackPanel" });
-            group.Items.Add(new PageItem { Title = "VariableSizedWrapGrid" });
+            //group.Items.Add(new PageItem { Title = " Zooming scroll viewer" });
+            //group.Items.Add(new PageItem { Title = "StackPanel" });
+            //group.Items.Add(new PageItem { Title = "VariableSizedWrapGrid" });
             group.Items.Add(new PageItem { Title = "Viewbox" });
             pages.Add(group);
 
@@ -66,9 +65,9 @@ namespace UwpControlsDemo
 
             pages.Add(group);
 
-            group = new PageItemGroup("Media controls");
-            group.Items.Add(new PageItem { Title = "Media element" });
-            pages.Add(group);
+            //group = new PageItemGroup("Media controls");
+            //group.Items.Add(new PageItem { Title = "Media element" });
+            //pages.Add(group);
 
             group = new PageItemGroup("Progress controls");
             group.Items.Add(new PageItem { Title = "ProgressBar ", Type = typeof(ProgressBarPage) });
@@ -78,8 +77,8 @@ namespace UwpControlsDemo
             group = new PageItemGroup("Text controls");
             group.Items.Add(new PageItem { Title = "AutoSuggestBox", Type = typeof(AutoSuggestBoxPage) });
             group.Items.Add(new PageItem { Title = "PasswordBox " });
-            group.Items.Add(new PageItem { Title = "RichEditBox " });
-            group.Items.Add(new PageItem { Title = "TextBlock" });
+            //group.Items.Add(new PageItem { Title = "RichEditBox " });
+            //group.Items.Add(new PageItem { Title = "TextBlock" });
             group.Items.Add(new PageItem { Title = "TextBox", Type = typeof(TextBoxPage) });
             group.Items.Add(new PageItem { Title = "TextBlock", Type = typeof(TextBlockPage) });
             pages.Add(group);
